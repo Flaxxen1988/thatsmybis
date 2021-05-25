@@ -38,6 +38,7 @@ mix.babel('public/js/autocomplete.js',   'public/js/processed/autocomplete.js')
     .babel('public/js/itemMassInput.js', 'public/js/processed/itemMassInput.js')
     .babel('public/js/roster.js',        'public/js/processed/roster.js')
     .babel('public/js/raidEdit.js',      'public/js/processed/raidEdit.js')
+    .babel('public/js/lodash.js',      'public/js/processed/lodash.js')
 
     .styles(['public/css/main.css'], 'public/css/processed/main.css');
 

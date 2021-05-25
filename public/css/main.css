@@ -132,65 +132,65 @@ body {
     font-size:18px;
 }
 
-.text-death-knight {
+.text-page-classes-death-knight {
     color: #c41e3b;
 }
-.text-druid {
+.text-page-classes-druid {
     color: #ff8000;
 }
-.text-dk {
+.text-page-classes-dk {
     color: #c41e3b;
 }
-.text-hunter {
+.text-page-classes-hunter {
     color: #9dd367;
 }
-.text-mage {
+.text-page-classes-mage {
     color: #68ccef;
 }
-.text-paladin {
+.text-page-classes-paladin {
     color: #e68cab;
 }
-.text-priest {
+.text-page-classes-priest {
     color: #d7d7d7;
 }
-.text-rogue {
+.text-page-classes-rogue {
     color: #fff468;
 }
-.text-shaman {
+.text-page-classes-shaman {
     color: #4a76ff; /* originally #2359ff */
 }
-.text-warlock {
+.text-page-classes-warlock {
     color: #9382c9;
 }
-.text-warrior {
+.text-page-classes-warrior {
     color: #bb9b63;
 }
 
-.text-druid-important {
+.text-page-classes-druid-important {
     color: #ff8000 !important;
 }
-.text-hunter-important {
+.text-page-classes-hunter-important {
     color: #9dd367 !important;
 }
-.text-mage-important {
+.text-page-classes-mage-important {
     color: #68ccef !important;
 }
-.text-paladin-important {
+.text-page-classes-paladin-important {
     color: #e68cab !important;
 }
-.text-priest-important {
+.text-page-classes-priest-important {
     color: #d7d7d7 !important;
 }
-.text-rogue-important {
+.text-page-classes-rogue-important {
     color: #fff468 !important;
 }
-.text-shaman-important {
+.text-page-classes-shaman-important {
     color: #4a76ff !important;
 }
-.text-warlock-important {
+.text-page-classes-warlock-important {
     color: #9382c9 !important;
 }
-.text-warrior-important {
+.text-page-classes-warrior-important {
     color: #bb9b63 !important;
 }
 

@@ -1,6 +1,8 @@
 <?php
 return [
     'character' => include('character/character.php'),
+    'partials' => include ('partials/partials.php'),
+    'member' => include ('member/member.php'),
     'races' => [
         'bloodelf' => 'Blood Elf',
         'orc' => 'Orc',

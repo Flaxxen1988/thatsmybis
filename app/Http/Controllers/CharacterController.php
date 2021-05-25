@@ -403,8 +403,10 @@ class CharacterController extends Controller
                 return $query->Where('members.id', request()->input('member_id'));
             },
             'allCharacters' => function ($query) {
-                return $query->whereRaw('LOWER(characters.name) COLLATE utf8mb4_bin = (?)', strtolower(request()->input('name')))
+                return $query->where('characters.name', strtolower(request()->input('name')))
                     ->orWhere('id', request()->input('id'));
+                //return $query->whereRaw('LOWER(characters.name) COLLATE utf8mb4_bin = (?)', strtolower(request()->input('name')))
+                //    ->orWhere('id', request()->input('id'));
             },
             'raidGroups',
         ]);

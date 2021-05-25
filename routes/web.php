@@ -11,6 +11,8 @@
 |
 */
 
+use Illuminate\Support\Facades\Cache;
+
 Route::get('/home', function () {request()->session()->reflash(); return redirect()->route('home');}); // Laravel's framework directs to '/home' in several scenarios...
 Route::get( '/',    'HomeController@index')->name('home');
 
@@ -195,3 +197,29 @@ Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'LanguageController@
 //     Route::post('/updateContent/{id?}', 'ContentController@update')->where('id', '[0-9]+')->name('updateContent');
 //     Route::post('/removeContent/{id}',  'ContentController@remove')->where('id', '[0-9]+')->name('removeContent');
 // });
+
+// Localization
+Route::get('/js/lang.js', function () {
+    Cache::forget('lang.js');
+    $resources = Cache::rememberForever('lang.js', function () {
+        $strings = [];
+
+        foreach (Config::get('languages') as $key => $language) {
+            $files = glob(resource_path('lang/' . $key . '/*.php'));
+
+            try {
+                foreach ($files as $file) {
+                    $name = basename($file, '.php');
+                    $strings[$key][$name] = require $file;
+                }
+            } catch (Exception $e) {
+                dd($files);
+            }
+        }
+        return $strings;
+    });
+
+    header('Content-Type: text/javascript');
+    echo('window.i18n = ' . json_encode($resources) . ';');
+    exit();
+})->name('assets.lang');

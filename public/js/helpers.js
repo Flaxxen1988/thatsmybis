@@ -1,4 +1,5 @@
 // For knowing what kind of tier style to display
+
 const TIER_MODE_NUM = 'num';
 const TIER_MODE_S   = 's';
 

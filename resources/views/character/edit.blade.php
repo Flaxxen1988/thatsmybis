@@ -12,7 +12,7 @@
                     </div>
                 @else
                     <div class="col-12 pt-2 mb-2">
-                        <h1 class="font-weight-medium ">Create a Character</h1>
+                        <h1 class="font-weight-medium ">{{trans('page.character.edit.create')}}</h1>
                     </div>
                 @endif
             </div>
@@ -39,7 +39,7 @@
                                 <div class="form-group">
                                     <label for="name" class="font-weight-bold">
                                         <span class="text-muted fas fa-fw fa-user"></span>
-                                        Character Name
+                                        {{trans('page.character.edit.character_name')}}
                                     </label>
                                     <input name="name"
                                         maxlength="40"
@@ -55,7 +55,7 @@
                                     <div class="form-group">
                                         <label for="member_id" class="font-weight-bold">
 
-                                            Guild Member
+                                            {{trans('page.character.edit.guild_member')}}
                                         </label>
                                         <div class="form-group">
                                             <select name="member_id" class="form-control dark selectpicker" data-live-search="true">
@@ -81,7 +81,7 @@
                             <div class="col-sm-6 col-12">
                                 <div class="form-group">
                                     <label for="class" class="font-weight-bold">
-                                        Class
+                                        {{trans('page.character.edit.class')}}
                                     </label>
                                     <div class="form-group">
                                         <select name="class" class="form-control dark">
@@ -90,7 +90,7 @@
                                             </option>
 
                                             @foreach (App\Character::classes($guild->expansion_id) as $class)
-                                                <option value="{{ $class }}" class="text-{{ strtolower($class) }}-important"
+                                                <option value="{{ $class }}" class="text-{{ str_replace('.','-', strtolower($class)) }}-important"
                                                     {{ old('class') ? (old('class') == $class ? 'selected' : '') : ($character && $character->class == $class ? 'selected' : '') }}>
                                                     {{ trans($class) }}
                                                 </option>
@@ -103,7 +103,7 @@
                             <div class="col-sm-6 col-12">
                                 <div class="form-group">
                                     <label for="spec" class="font-weight-bold">
-                                        Spec
+                                        {{trans('page.character.edit.spec')}}
                                     </label>
                                     <input name="spec"
                                         maxlength="50"
@@ -119,7 +119,7 @@
                             <div class="col-sm-6 col-12">
                                 <div class="form-group">
                                     <label for="race" class="font-weight-bold">
-                                        Race
+                                        {{trans('page.character.edit.race')}}
                                     </label>
                                     <div class="form-group">
                                         <select name="race" class="form-control dark">
@@ -161,7 +161,7 @@
                         <div class="form-group">
                             <label for="raid_group_id" class="font-weight-bold">
                                 <span class="fas fa-fw fa-helmet-battle text-dk"></span>
-                                Raid Group
+                                {{trans('page.character.edit.raid_group')}}
                             </label>
                             <div class="form-group">
                                 <select name="raid_group_id" class="form-control dark">
@@ -189,7 +189,7 @@
                                 <div class="form-group">
                                     <label for="class" class="font-weight-bold">
                                         <span class="text-muted fas fa-fw fa-flower-daffodil"></span>
-                                        Profession 1
+                                        {{trans('page.character.edit.profession_1')}}
                                     </label>
                                     <div class="form-group">
                                         <select name="profession_1" class="form-control dark">
@@ -210,7 +210,7 @@
                             <div class="col-sm-6 col-12">
                                 <div class="form-group">
                                     <label for="class" class="font-weight-bold">
-                                        Profession 2
+                                        {{trans('page.character.edit.profession_2')}}
                                     </label>
                                     <div class="form-group">
                                         <select name="profession_2" class="form-control dark">
@@ -236,7 +236,7 @@
                                     <div class="form-group">
                                         <label for="rank" class="font-weight-bold">
                                             <span class="text-muted fas fa-fw fa-swords"></span>
-                                            PvP Rank
+                                            {{trans('page.character.edit.rank')}}
                                         </label>
                                         <input name="rank"
                                             type="number"
@@ -252,7 +252,7 @@
                                 <div class="col-sm-3 col-6">
                                     <div class="form-group">
                                         <label for="rank_goal" class="font-weight-bold">
-                                            PvP Rank Goal
+                                            {{trans('page.character.edit.rank_goal')}}
                                         </label>
                                         <input name="rank_goal"
                                             type="number"
@@ -273,10 +273,10 @@
                         <div class="form-group">
                             <label for="public_note" class="font-weight-bold">
                                 <span class="text-muted fas fa-fw fa-comment-alt-lines"></span>
-                                Public Note
-                                <small class="text-muted">anyone in the guild can see this</small>
+                                {{trans('page.character.edit.public_note')}}
+                                <small class="text-muted">{{trans('page.character.edit.anyone_can_see')}}</small>
                             </label>
-                            <textarea maxlength="140" data-max-length="140" name="public_note" rows="2" placeholder="anyone in the guild can see this" class="form-control dark">{{ old('public_note') ? old('public_note') : ($character ? $character->public_note : '') }}</textarea>
+                            <textarea maxlength="140" data-max-length="140" name="public_note" rows="2" placeholder="{{trans('page.character.edit.anyone_can_see')}}" class="form-control dark">{{ old('public_note') ? old('public_note') : ($character ? $character->public_note : '') }}</textarea>
                         </div>
                     </div>
 
@@ -285,13 +285,13 @@
                             <div class="form-group">
                                 <label for="officer_note" class="font-weight-bold">
                                     <span class="text-muted fas fa-fw fa-shield"></span>
-                                    Officer Note
-                                    <small class="text-muted">only officers can see this</small>
+                                    {{trans('page.character.edit.officer_note')}}
+                                    <small class="text-muted">{{trans('page.character.edit.officer_can_see')}}</small>
                                 </label>
                                 @if (isStreamerMode())
-                                    Hidden in streamer mode
+                                    {{trans('page.character.edit.hidden_on_stream')}}
                                 @else
-                                    <textarea maxlength="140" data-max-length="140" name="officer_note" rows="2" placeholder="only officers can see this" class="form-control dark">{{ old('officer_note') ? old('officer_note') : ($character ? $character->officer_note : '') }}</textarea>
+                                    <textarea maxlength="140" data-max-length="140" name="officer_note" rows="2" placeholder="{{trans('page.character.edit.officer_can_see')}}" class="form-control dark">{{ old('officer_note') ? old('officer_note') : ($character ? $character->officer_note : '') }}</textarea>
                                 @endif
                             </div>
                         </div>
@@ -303,10 +303,10 @@
                                 <div class="form-group">
                                     <label for="personal_note" class="font-weight-bold">
                                         <span class="text-muted fas fa-fw fa-eye-slash"></span>
-                                        Personal Note
-                                        <small class="text-muted">only you can see this</small>
+                                        {{trans('page.character.edit.personal_note')}}
+                                        <small class="text-muted">{{trans('page.character.edit.only_u')}}</small>
                                     </label>
-                                    <textarea maxlength="2000" data-max-length="2000" name="personal_note" rows="2" placeholder="only you can see this" class="form-control dark">{{ old('personal_note') ? old('personal_note') : ($character ? $character->personal_note : '') }}</textarea>
+                                    <textarea maxlength="2000" data-max-length="2000" name="personal_note" rows="2" placeholder="{{trans('page.character.edit.only_u')}}" class="form-control dark">{{ old('personal_note') ? old('personal_note') : ($character ? $character->personal_note : '') }}</textarea>
                                 </div>
                             </div>
                         @endif
@@ -320,7 +320,7 @@
                                     <label>
                                         <input type="checkbox" name="inactive_at" value="1" class="" autocomplete="off"
                                             {{ old('inactive_at') && old('inactive_at') == 1 ? 'checked' : ($character->inactive_at ? 'checked' : '') }}>
-                                            Archive <small class="text-muted">no longer visible</small>
+                                            {{trans('page.character.edit.archive')}} <small class="text-muted">{{trans('page.character.edit.not_visible')}}</small>
                                     </label>
                                 </div>
                             </div>
@@ -331,7 +331,7 @@
                                     <label>
                                         <input type="checkbox" name="is_alt" value="1" class="" autocomplete="off"
                                             {{ old('is_alt') && old('is_alt') == 1 ? 'checked' : ($character->is_alt ? 'checked' : '') }}>
-                                            Alt Character <small class="text-muted">will be tagged as an alt</small>
+                                        {{trans('page.character.edit.alt_char')}} <small class="text-muted"></small>{{trans('page.character.edit.tagged_as_alt')}}
                                     </label>
                                 </div>
                             </div>
@@ -342,7 +342,7 @@
                                 <div class="checkbox">
                                     <label>
                                         <input type="checkbox" name="is_alt" value="1" class="" autocomplete="off">
-                                            Alt Character <small class="text-muted">will be tagged as an alt</small>
+                                        {{trans('page.character.edit.alt_char')}} <small class="text-muted">{{trans('page.character.edit.tagged_as_alt')}}</small>
                                     </label>
                                 </div>
                             </div>
@@ -350,7 +350,7 @@
                     @endif
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-success"><span class="fas fa-fw fa-save"></span> Save</button>
+                    <button class="btn btn-success"><span class="fas fa-fw fa-save"></span> {{trans('page.character.edit.save')}}</button>
                 </div>
             </form>
         </div>

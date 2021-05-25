@@ -52,7 +52,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id={{ env('GOOGLE_ANALYTICS_KEY') }}"></script>
     <script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', '{{ env('GOOGLE_ANALYTICS_KEY') }}');</script>
-
+    <script src="/js/lang.js"></script>
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha512-MoRNloxbStBcD8z3M/2BmnT+rg4IsMxPkXaGh2zD6LGNNFE80W3onsAhRcMAMrSoyWL9xD7Ert0men7vR8LUZg==" crossorigin="anonymous" />
@@ -180,7 +180,7 @@
     <script>var whTooltips = {colorLinks: true, iconizeLinks: true, renameLinks: true, dropChance: true, iconSize: '@yield('wowheadIconSize', 'small')', hide: { maxstack: true, ilvl: false, sellprice: true }};</script>
     <script src="https://wow.zamimg.com/widgets/power.js"></script>
     <style>.q3 {color: #057ffa !important;} .q4 {color: #ab4aed !important;}/* override some wowhead item quality colors to be higher contrast */</style>
-
+    <script src="{{ loadScript('lodash.js') }}"></script>
     <script>
         @if (isset($guild) && $guild->expansion_id)
             var expansionId = {{ $guild->expansion_id }};
@@ -211,6 +211,9 @@
             var wowheadSubdomain = "www";
         @endif
         var language = '{{Illuminate\Support\Facades\App::getLocale()}}';
+        window.trans = function (translation) {
+            return _.get(window.i18n, language + "." + translation);
+        };
     </script>
 
     <script src="{{ loadScript('helpers.js') }}"></script>

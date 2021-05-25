@@ -246,6 +246,13 @@ class Guild extends Model
             });
         }
 
+        //$characters->each(function ($character) {
+        //    $character->race = trans($character->race);
+        //    $character->class = trans($character->class);
+        //    $character->profession_1 = trans($character->profession_1);
+        //    $character->profession_2 = trans($character->profession_2);
+        //});
+
         // Ugh idk, I just want to not have to make all the calls again to check for these permissions... I'd rather just reuse them by sending them back.
         return [
             'characters'      => $characters,

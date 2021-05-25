@@ -114,7 +114,7 @@
                             {{trans('nav.loot.guild_recipes')}}
                         </a>
                         <a class="dropdown-item text-muted" href="{{ route('guild.loot.wishlist', ['guildId' => $guild->id, 'guildSlug' => $guild->slug]) }}">
-                            {{trans('nav.loot.wide_wishlists')}}Sitewide wishlists
+                            {{trans('nav.loot.wide_wishlists')}}
                         </a>
                     </div>
                 </li>

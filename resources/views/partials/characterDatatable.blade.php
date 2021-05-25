@@ -3,7 +3,7 @@
         <li class="list-inline-item">
             <label for="raid_group_filter font-weight-light">
                 <span class="text-muted fas fa-fw fa-helmet-battle"></span>
-                Raid Group
+                {{trans('page.partials.characterDatatable.raid_group')}}
             </label>
             <select id="raid_group_filter" class="form-control dark">
                 <option value="">—</option>
@@ -17,13 +17,13 @@
         <li class=" list-inline-item">
             <label for="class_filter font-weight-light">
                 <span class="text-muted fas fa-fw fa-axe-battle"></span>
-                Class
+                {{trans('page.partials.characterDatatable.class')}}
             </label>
             <select id="class_filter" class="form-control dark">
                 <option value="">—</option>
                 @foreach (App\Character::classes($guild->expansion_id) as $class)
                     <option value="{{ $class }}" class="text-{{ strtolower($class) }}-important">
-                        {{ $class }}
+                        {{ trans($class) }}
                     </option>
                 @endforeach
             </select>
@@ -31,65 +31,65 @@
         <li class="list-inline-item">
             <label for="instance_filter font-weight-light">
                 <span class="text-muted fas fa-fw fa-sack"></span>
-                Dungeon
+                {{trans('page.partials.characterDatatable.dungeon')}}
             </label>
             <select id="instance_filter" class="form-control dark">
                 <option value="">—</option>
                 @if ($guild->expansion_id == 1)
                     <option value="4">
-                        Zul'Gurub
+                        {{trans('page.raids.zul_gurub')}}
                     </option>
                     <option value="5">
-                        Ruins of Ahn'Qiraj
+                        {{trans('page.raids.aq40')}}
                     </option>
                     <option value="8">
-                        World Bosses
+                        {{trans('page.raids.worldbosses')}}
                     </option>
                     <option value="1">
-                        Molten Core
+                        {{trans('page.raids.moltencore')}}
                     </option>
                     <option value="2">
-                        Onyxia's Lair
+                        {{trans('page.raids.ony_classic')}}
                     </option>
                     <option value="3">
-                        Blackwing Lair
+                        {{trans('page.raids.bwl')}}
                     </option>
                     <option value="6">
-                        Temple of Ahn'Qiraj
+                        {{trans('page.raids.aq20')}}
                     </option>
                     <option value="7">
-                        Naxxramas
+                        {{trans('page.raids.naxx')}}
                     </option>
                 @elseif ($guild->expansion_id == 2)
                     <option value="9">
-                        Karazhan
+                        {{trans('page.raids.karazhan')}}
                     </option>
                     <option value="10">
-                        Gruul's Lair
+                        {{trans('page.raids.gruul')}}
                     </option>
                     <option value="11">
-                        Magtheridon's Lair
+                        {{trans('page.raids.magtheridon')}}
                     </option>
                     <option value="12">
-                        Serpentshrine Cavern
+                        {{trans('page.raids.ssc')}}
                     </option>
                     <option value="13">
-                        Hyjal Summit
+                        {{trans('page.raids.hyjal')}}
                     </option>
                     <option value="14">
-                        Tempest Keep
+                        {{trans('page.raids.tempest_keep')}}
                     </option>
                     <option value="15">
-                        Black Temple
+                        {{trans('page.raids.black_temple')}}
                     </option>
                     <option value="16">
-                        Zul'Aman
+                        {{trans('page.raids.zul_aman')}}
                     </option>
                     <option value="17">
-                        Sunwell Plateau
+                        {{trans('page.raids.sunwell')}}
                     </option>
                     <option value="18">
-                        World Bosses
+                        {{trans('page.raids.worldbosses')}}
                     </option>
                 @endif
             </select>
@@ -97,19 +97,19 @@
 
         <li class="list-inline-item font-weight-light">
             <span class="text-muted fas fa-fw fa-eye-slash"></span>
-            Columns
+            {{trans('page.partials.characterDatatable.columns')}}
         </li>
         <li class="list-inline-item">&sdot;</li>
         <li class="list-inline-item">
             <span class="toggle-column-default text-link cursor-pointer">
-                Defaults
+                {{trans('page.partials.characterDatatable.defaults')}}
             </span>
         </li>
         <li class="list-inline-item">&sdot;</li>
         <li class="list-inline-item">
             <span class="toggle-column text-link cursor-pointer font-weight-light" data-column="1">
                 <span class="text-muted fal fa-fw fa-sack"></span>
-                Loot Received
+                {{trans('page.partials.characterDatatable.loot_received')}}
             </span>
         </li>
         @if ($showWishlist)
@@ -117,7 +117,7 @@
             <li class="list-inline-item">
                 <span class="toggle-column text-link cursor-pointer font-weight-light" data-column="2">
                     <span class="text-muted fal fa-fw fa-scroll-old"></span>
-                    Wishlist
+                    {{trans('page.partials.characterDatatable.wishlist')}}
                 </span>
             </li>
         @endif
@@ -126,7 +126,7 @@
             <li class="list-inline-item">
                 <span class="toggle-column text-link cursor-pointer font-weight-light" data-column="3">
                     <span class="text-muted fal fa-fw fa-sort-amount-down"></span>
-                    Prios
+                    {{trans('page.partials.characterDatatable.prios')}}
                 </span>
             </li>
         @endif
@@ -152,14 +152,14 @@
         <li class="list-inline-item">
             <span class="toggle-column text-link cursor-pointer font-weight-light" data-column="6">
                 <span class="text-muted fal fa-fw fa-comment-alt-lines"></span>
-                Notes
+                {{trans('page.partials.characterDatatable.notes')}}
             </span>
         </li>
         <li class="list-inline-item">&sdot;</li>
         <li class="list-inline-item">
             <span class="js-show-all-clipped-items text-link cursor-pointer font-weight-light" data-column="6">
                 <span class="text-muted fal fa-fw fa-eye"></span>
-                Show all loot
+                {{trans('page.partials.characterDatatable.show_all_loot')}}
             </span>
         </li>
     </ul>

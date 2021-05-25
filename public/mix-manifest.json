@@ -1,10 +1,10 @@
 {
-    "/js/processed/autocomplete.js": "/js/processed/autocomplete.js?id=1c5239d12b3a11aa440f",
-    "/js/processed/guildSettings.js": "/js/processed/guildSettings.js?id=3d20a2158a76b026d19d",
-    "/js/processed/helpers.js": "/js/processed/helpers.js?id=eaead432a9aa0fd53a2a",
-    "/js/processed/itemList.js": "/js/processed/itemList.js?id=a252761f6a73bb3ae918",
-    "/js/processed/itemMassInput.js": "/js/processed/itemMassInput.js?id=4ed7a8f5db75db78b91d",
-    "/js/processed/roster.js": "/js/processed/roster.js?id=3bfb6829b320787b01ea",
-    "/js/processed/raidEdit.js": "/js/processed/raidEdit.js?id=3a248fe8309a578363f0",
-    "/css/processed/main.css": "/css/processed/main.css?id=d44c03dd985dd6e6880e"
+    "/js/processed/autocomplete.js": "/js/processed/autocomplete.js",
+    "/js/processed/guildSettings.js": "/js/processed/guildSettings.js",
+    "/js/processed/helpers.js": "/js/processed/helpers.js",
+    "/js/processed/itemList.js": "/js/processed/itemList.js",
+    "/js/processed/itemMassInput.js": "/js/processed/itemMassInput.js",
+    "/js/processed/roster.js": "/js/processed/roster.js",
+    "/js/processed/raidEdit.js": "/js/processed/raidEdit.js",
+    "/css/processed/main.css": "/css/processed/main.css"
 }

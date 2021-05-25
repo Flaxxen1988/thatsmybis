@@ -68,14 +68,14 @@ function createTable() {
         "data"      : characters,
         "columns"   : [
             {
-                "title"  : '<span class="fas fa-fw fa-user"></span> Character',
+                "title"  : `<span class="fas fa-fw fa-user"></span> ${ trans("roster.character") }`,
                 "data"   : "character",
                 "render" : function (data, type, row) {
                     return `
                     <ul class="no-bullet no-indent mb-2">
                         <li>
-                            <div class="dropdown text-${ row.class ? row.class.toLowerCase() : '' }">
-                                <a class="dropdown-toggle text-4 font-weight-bold text-${ row.class ? row.class.toLowerCase() : '' }"
+                            <div class="dropdown text-${ row.class ? row.class.replaceAll('.', '-') : '' }">
+                                <a class="dropdown-toggle text-4 font-weight-bold text-${ row.class ? row.class.replaceAll('.', '-') : '' }"
                                     id="character${ row.id }Dropdown"
                                     role="button"
                                     data-toggle="dropdown"
@@ -85,11 +85,11 @@ function createTable() {
                                     ${ row.name }
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="character${ row.id }Dropdown">
-                                    <a class="dropdown-item" href="/${ guild.id }/${ guild.slug }/c/${ row.id }/${ row.slug }" target="_blank">Profile</a>
-                                    <a class="dropdown-item" href="/${ guild.id }/${ guild.slug }/audit-log?character_id=${ row.id }" target="_blank">History</a>
+                                    <a class="dropdown-item" href="/${ guild.id }/${ guild.slug }/c/${ row.id }/${ row.slug }" target="_blank">${ trans("roster.profile") }</a>
+                                    <a class="dropdown-item" href="/${ guild.id }/${ guild.slug }/audit-log?character_id=${ row.id }" target="_blank">${ trans("roster.history") }</a>
                                     ${ showEdit ?
-                                        `<a class="dropdown-item" href="/${ guild.id }/${ guild.slug }/c/${ row.id }/${ row.slug }/edit" target="_blank">Edit</a>
-                                        <a class="dropdown-item" href="/${ guild.id }/${ guild.slug }/c/${ row.id }/${ row.slug }/loot" target="_blank">Loot</a>`
+                                        `<a class="dropdown-item" href="/${ guild.id }/${ guild.slug }/c/${ row.id }/${ row.slug }/edit" target="_blank">${ trans("roster.edit") }</a>
+                                        <a class="dropdown-item" href="/${ guild.id }/${ guild.slug }/c/${ row.id }/${ row.slug }/loot" target="_blank">${ trans("roster.loot") }</a>`
                                         : `` }
                                     ${ row.member_id ?
                                         `<a class="dropdown-item" href="/${ guild.id }/${ guild.slug }/u/${ row.member_id }/${ row.username ? row.username.toLowerCase() : 'view member' }" target="_blank">${ row.username ? row.username : 'view member' }</a>`
@@ -108,7 +108,7 @@ function createTable() {
                                         ${ row.raid_group_name ? row.raid_group_name : '' }
                                     </span>
                                 ` : ``}
-                                ${ row.class ? row.class : '' }
+                                ${ row.class ? trans(row.class) : '' }
                             </li>` : `` }
 
                         ${ !guild.is_attendance_hidden && (row.attendance_percentage || row.raid_count) ?
@@ -122,7 +122,7 @@ function createTable() {
                                 <span class="small text-muted">
                                     ${ row.level ? row.level : '' }
                                     <span class="font-weight-bold">
-                                        ${ row.race  ? row.race : '' }
+                                        ${ row.race  ? trans(row.race) : '' }
                                         ${ row.spec  ? row.spec : '' }
                                     </span>
                                 </span>
@@ -132,14 +132,14 @@ function createTable() {
                             <li>
                                 <span class="small text-muted">
                                     ${ row.rank         ? 'Rank ' + row.rank + (row.profession_1 || row.profession_2 ? ',' : '') : '' }
-                                    ${ row.profession_1 ? row.profession_1 + (row.profession_2 ? ',' : '') : '' }
-                                    ${ row.profession_2 ? row.profession_2 : '' }
+                                    ${ row.profession_1 ? trans(row.profession_1) + (row.profession_2 ? ',' : '') : '' }
+                                    ${ row.profession_2 ? trans(row.profession_2) : '' }
                                 </span>
                             </li>` : `` }
                         ${ showEdit ?
                             `
-                            ${ row.is_received_unlocked ? `<li class="list-inline-item small text-warning" title="To lock, edit the member that owns this character">loot unlocked</li>` : `` }
-                            ${ row.is_wishlist_unlocked ? `<li class="list-inline-item small text-warning" title="To lock, edit the member that owns this character">wishlist unlocked</li>` : `` }
+                            ${ row.is_received_unlocked ? `<li class="list-inline-item small text-warning" title="To lock, edit the member that owns this character">${ trans("roster.loot_unlocked") }</li>` : `` }
+                            ${ row.is_wishlist_unlocked ? `<li class="list-inline-item small text-warning" title="To lock, edit the member that owns this character">${ trans("roster.wishlist_unlocked") }</li>` : `` }
                             ` : `` }
                     </ul>`;
                 },
@@ -147,7 +147,7 @@ function createTable() {
                 "width"   : "250px",
             },
             {
-                "title"  : '<span class="text-success fas fa-fw fa-sack"></span> Loot Received',
+                "title"  : `<span class="text-success fas fa-fw fa-sack"></span> ${ trans("roster.loot_received") }`,
                 "data"   : "received",
                 "render" : function (data, type, row) {
                     return data && data.length ? getItemList(data, 'received', row.id) : '—';
@@ -157,7 +157,7 @@ function createTable() {
                 "width"   : "280px",
             },
             {
-                "title"  : `<span class="text-legendary fas fa-fw fa-scroll-old"></span> Wishlist
+                "title"  : `<span class="text-legendary fas fa-fw fa-scroll-old"></span> ${ trans("roster.wishlist") }
                     <span class="js-sort-wishlists text-link">
                         <span class="fas fa-fw fa-exchange cursor-pointer"></span>
                     </span>`,
@@ -179,7 +179,7 @@ function createTable() {
                 "width"   : "280px",
             },
             {
-                "title"  : '<span class="text-gold fas fa-fw fa-sort-amount-down"></span> Prio\'s',
+                "title"  : `<span class="text-gold fas fa-fw fa-sort-amount-down"></span> ${ trans("roster.prios") }`,
                 "data"   : "prios",
                 "render" : function (data, type, row) {
                     return data && data.length ? getItemList(data, 'prio', row.id, true) : '—';
@@ -189,7 +189,7 @@ function createTable() {
                 "width"   : "280px",
             },
             {
-                "title"  : '<span class="text-gold fas fa-fw fa-book"></span> Recipes',
+                "title"  : '<span class="text-gold fas fa-fw fa-book"></span> ${ trans("roster.recipes") }',
                 "data"   : "recipes",
                 "render" : function (data, type, row) {
                     return data && data.length ? getItemList(data, 'recipes', row.id) : '—';
@@ -220,7 +220,7 @@ function createTable() {
                 "visible" : false,
             },
             {
-                "title"  : '<span class="fas fa-fw fa-comment-alt-lines"></span> Notes',
+                "title"  : `<span class="fas fa-fw fa-comment-alt-lines"></span> ${ trans("roster.notes") }`,
                 "data"   : "public_note",
                 "render" : function (data, type, row) {
                     return (row.public_note ? `<span class="js-markdown-inline">${ nl2br(row.public_note) }</span>` : '—')
