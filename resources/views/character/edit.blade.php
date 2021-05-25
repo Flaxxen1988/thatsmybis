@@ -92,7 +92,7 @@
                                             @foreach (App\Character::classes($guild->expansion_id) as $class)
                                                 <option value="{{ $class }}" class="text-{{ strtolower($class) }}-important"
                                                     {{ old('class') ? (old('class') == $class ? 'selected' : '') : ($character && $character->class == $class ? 'selected' : '') }}>
-                                                    {{ $class }}
+                                                    {{ trans($class) }}
                                                 </option>
                                             @endforeach
                                         </select>
@@ -130,7 +130,7 @@
                                             @foreach (App\Character::races($guild->expansion_id) as $race)
                                                 <option value="{{ $race }}"
                                                     {{ old('race') ? (old('race') == $race ? 'selected' : '') : ($character && $character->race == $race ? 'selected' : '') }}>
-                                                    {{ $race }}
+                                                    {{ trans($race) }}
                                                 </option>
                                             @endforeach
                                         </select>
@@ -200,7 +200,7 @@
                                             @foreach (App\Character::professions($guild->expansion_id) as $profession)
                                                 <option value="{{ $profession }}"
                                                     {{ old('profession_1') ? (old('profession_1') == $profession ? 'selected' : '') : ($character && $character->profession_1 == $profession ? 'selected' : '') }}>
-                                                    {{ $profession }}
+                                                    {{ trans($profession) }}
                                                 </option>
                                             @endforeach
                                         </select>
@@ -221,7 +221,7 @@
                                             @foreach (App\Character::professions($guild->expansion_id) as $profession)
                                                 <option value="{{ $profession }}"
                                                     {{ old('profession_2') ? (old('profession_2') == $profession ? 'selected' : '') : ($character && $character->profession_2 == $profession ? 'selected' : '') }}>
-                                                    {{ $profession }}
+                                                    {{ trans($profession) }}
                                                 </option>
                                             @endforeach
                                         </select>

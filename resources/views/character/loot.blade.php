@@ -7,7 +7,7 @@
         <div class="col-xl-8 offset-xl-2 col-md-10 offset-md-1 col-12">
             <div class="row mb-3">
                 <div class="col-12 pt-2 bg-lightest rounded">
-                    @include('character/partials/header', ['headerSize' => 1, 'showEdit' => false, 'titleSuffix' => "'s loot"])
+                    @include('character/partials/header', ['headerSize' => 1, 'showEdit' => false, 'titleSuffix' => trans('page.character.loot.title_suffix')])
                 </div>
             </div>
 
@@ -31,7 +31,7 @@
                         <div class="col-12 mb-2">
                             <span class="text-gold font-weight-bold">
                                 <span class="fas fa-fw fa-sort-amount-down"></span>
-                                Prios
+                                {{trans('page.character.loot.prios')}}
                             </span>
                         </div>
                         <div class="col-12 pb-3">
@@ -56,7 +56,7 @@
                 <div class="row">
                     <div class="col-12 mb-3">
                         <small>
-                            <span class="font-weight-bold">Hint:</span> Your top 4 items are displayed first; make them count
+                            <span class="font-weight-bold">{{trans('page.character.loot.hint')}}</span> {{trans('page.character.loot.top_4')}}
                         </small>
                     </div>
                 </div>
@@ -66,16 +66,16 @@
                         <label for="wishlist">
                             <span class="font-weight-bold text-legendary">
                                 <span class="fas fa-fw fa-scroll-old"></span>
-                                Wishlist
+                                {{trans('page.character.loot.wishlist')}}
                             </span>
                             @if ($lockWishlist)
-                                <small class="text-warning font-weight-normal">locked by your guild master(s)</small>
+                                <small class="text-warning font-weight-normal">{{trans('page.character.loot.locked_by_gm')}}</small>
                             @elseif (!$unlockWishlist && $guild->is_wishlist_locked)
-                                <small class="text-warning font-weight-normal">locked for raiders</small> <small class="text-muted font-weight-normal">max {{ $maxWishlistItems }}</small>
+                                <small class="text-warning font-weight-normal">{{trans('page.character.loot.locked_for_raiders')}}</small> <small class="text-muted font-weight-normal">max {{ $maxWishlistItems }}</small>
                             @else
                                 <small class="text-muted font-weight-normal">max {{ $maxWishlistItems }}</small>
                             @endif
-                            <a href="{{ route('guild.loot.wishlist', ['guildId' => $guild->id, 'guildSlug' => $guild->slug]) }}" class="small font-weight-normal">see what other people wishlisted</a>
+                            <a href="{{ route('guild.loot.wishlist', ['guildId' => $guild->id, 'guildSlug' => $guild->slug]) }}" class="small font-weight-normal">{{trans('page.character.loot.see_others_wishlist')}}</a>
                         </label>
 
                         @if ($lockWishlist)
@@ -95,7 +95,7 @@
                             @endif
                         @else
                             <div class="{{ $errors->has('wishlist.*') ? 'has-error' : '' }}">
-                                <input id="wishlist" maxlength="40" data-max-length="40" type="text" placeholder="type an item name" class="js-item-autocomplete js-input-text form-control dark">
+                                <input id="wishlist" maxlength="40" data-max-length="40" type="text" placeholder="{{trans('page.character.loot.type_item_name')}}" class="js-item-autocomplete js-input-text form-control dark">
                                 <span class="js-loading-indicator" style="display:none;">Searching...</span>&nbsp;
 
                                 <ul class="js-sortable no-bullet no-indent mb-0 bg-light">
@@ -165,13 +165,13 @@
                         <label for="received">
                             <span class="font-weight-bold text-success">
                                 <span class="fas fa-fw fa-sack"></span>
-                                Loot Received
+                                {{trans('page.character.loot.loot_received')}}
                             </span>
 
                             @if ($lockReceived)
-                                <small class="text-warning font-weight-normal">locked by your guild master(s)</small>
+                                <small class="text-warning font-weight-normal">{{trans('page.character.loot.locked_by_gm')}}</small>
                             @elseif (!$unlockReceived && $guild->is_received_locked)
-                                <small class="text-warning font-weight-normal">locked for raiders</small> <small class="text-muted font-weight-normal">max {{ $maxReceivedItems }}</small>
+                                <small class="text-warning font-weight-normal">{{trans('page.character.loot.locked_for_raiders')}}</small> <small class="text-muted font-weight-normal">max {{ $maxReceivedItems }}</small>
                             @else
                                 <small class="text-muted font-weight-normal">max {{ $maxReceivedItems }}</small>
                             @endif
@@ -194,7 +194,7 @@
                             @endif
                         @else
                             <div class="{{ $errors->has('received.*') ? 'has-error' : '' }}">
-                                <input id="received" maxlength="40" data-max-length="40" type="text" placeholder="type an item name" class="js-item-autocomplete js-input-text form-control dark">
+                                <input id="received" maxlength="40" data-max-length="40" type="text" placeholder="{{trans('page.character.loot.type_item_name')}}" class="js-item-autocomplete js-input-text form-control dark">
                                 <span class="js-loading-indicator" style="display:none;">Searching...</span>&nbsp;
 
                                 <ul class="js-sortable no-bullet no-indent mb-0">
@@ -255,14 +255,14 @@
                         <label for="recipes">
                             <span class="font-weight-bold text-rare text-rare">
                                 <span class="fas fa-fw fa-book"></span>
-                                Rare Recipes
+                                {{trans('page.character.loot.rare_recipes')}}
                             </span>
                             <small class="text-muted font-weight-normal">Max {{ $maxRecipes }}</small>
                         </label>
 
                         <div class="{{ $errors->has('recipes.*') ? 'has-error' : '' }}">
-                            <input id="recipes" maxlength="40" data-max-length="40" type="text" placeholder="type an item name" class="js-item-autocomplete js-input-text form-control dark">
-                            <span class="js-loading-indicator" style="display:none;">Searching...</span>&nbsp;
+                            <input id="recipes" maxlength="40" data-max-length="40" type="text" placeholder="{{trans('page.character.loot.type_item_name')}}" class="js-item-autocomplete js-input-text form-control dark">
+                            <span class="js-loading-indicator" style="display:none;">{{trans('page.character.loot.searching')}}</span>&nbsp;
 
                             <ul class="js-sortable no-bullet no-indent mb-0">
                                 @for ($i = 0; $i < $maxRecipes; $i++)
@@ -321,10 +321,10 @@
                         <div class="form-group">
                             <label for="public_note" class="font-weight-bold">
                                 <span class="text-muted fas fa-fw fa-comment-alt-lines"></span>
-                                Public Note
-                                <small class="text-muted">anyone in the guild can see this</small>
+                                {{trans('page.character.loot.public_note')}}
+                                <small class="text-muted"></small>
                             </label>
-                            <textarea maxlength="140" data-max-length="140" name="public_note" rows="2" placeholder="anyone in the guild can see this" class="form-control dark">{{ old('public_note') ? old('public_note') : ($character ? $character->public_note : '') }}</textarea>
+                            <textarea maxlength="140" data-max-length="140" name="public_note" rows="2" placeholder="{{trans('page.character.loot.anyone_can_see')}}" class="form-control dark">{{ old('public_note') ? old('public_note') : ($character ? $character->public_note : '') }}</textarea>
                         </div>
                     </div>
 
@@ -333,10 +333,10 @@
                             <div class="form-group">
                                 <label for="officer_note" class="font-weight-bold">
                                     <span class="text-muted fas fa-fw fa-shield"></span>
-                                    Officer Note
-                                    <small class="text-muted">only officers can see this</small>
+                                    {{trans('page.character.loot.officers_note')}}
+                                    <small class="text-muted">{{trans('page.character.loot.officers_can_see')}}</small>
                                 </label>
-                                <textarea maxlength="140" data-max-length="140" name="officer_note" rows="2" placeholder="only officers can see this" class="form-control dark">{{ old('officer_note') ? old('officer_note') : ($character ? $character->officer_note : '') }}</textarea>
+                                <textarea maxlength="140" data-max-length="140" name="officer_note" rows="2" placeholder="{{trans('page.character.loot.officers_can_see')}}" class="form-control dark">{{ old('officer_note') ? old('officer_note') : ($character ? $character->officer_note : '') }}</textarea>
                             </div>
                         </div>
                     @endif
@@ -356,7 +356,7 @@
                 </div>
 
                 <div class="form-group">
-                    <button class="btn btn-success"><span class="fas fa-fw fa-save"></span> Save</button>
+                    <button class="btn btn-success"><span class="fas fa-fw fa-save"></span> {{trans('page.character.loot.save')}}</button>
                 </div>
             </form>
         </div>

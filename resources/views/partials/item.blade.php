@@ -12,6 +12,7 @@ if (isset($item)) {
 
 $wowheadSubdomain = 'www';
 
+
 if (isset($guild) && $guild->expansion_id) {
     if ($guild->expansion_id === 1) {
         $wowheadSubdomain = 'classic';
@@ -24,6 +25,11 @@ if (isset($guild) && $guild->expansion_id) {
     } else if ($item->expansion_id === 2) {
         $wowheadSubdomain = 'tbc';
     }
+}
+
+$locale = \Illuminate\Support\Facades\Session::get('applocale');
+if($locale != 'en'){
+    $wowheadSubdomain = $locale.'.'.$wowheadSubdomain;
 }
 
 if (isset($showTier) && $showTier) {

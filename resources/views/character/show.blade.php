@@ -15,7 +15,7 @@
                 <div class="col-12 mb-2">
                     <span class="font-weight-bold">
                         <span class="fas fa-fw fa-helmet-battle text-dk"></span>
-                        Raid History
+                        {{trans('page.character.show.raid_history')}}
                     </span>
                 </div>
 
@@ -23,7 +23,7 @@
                     @if ($character->raids->count())
                         @include('partials/raidHistoryTable', ['raids' => $character->raids, 'showOfficerNote' => ($viewOfficerNotePermission && !isStreamerMode())])
                     @else
-                        None yet
+                        {{trans('page.character.show.none')}}
                     @endif
                 </div>
             </div>
@@ -34,7 +34,7 @@
                     <div class="col-12 mb-2">
                         <span class="text-gold font-weight-bold">
                             <span class="fas fa-fw fa-sort-amount-down"></span>
-                            Prios
+                            {{trans('page.character.show.prios')}}
                         </span>
                     </div>
                     <div class="col-12 pb-3">
@@ -79,14 +79,14 @@
                             <a href="{{ route('character.loot', ['guildId' => $guild->id, 'guildSlug' => $guild->slug, 'characterId' => $character->id, 'nameSlug' => $character->slug]) }}">
                                 <span class="text-legendary font-weight-bold">
                                     <span class="fas fa-fw fa-scroll-old"></span>
-                                    Wishlist
+                                    {{trans('page.character.show.wishlist')}}
                                 </span>
                                 <span class="small align-text- fas fa-fw fa-pencil"></span>
                             </a>
                         @else
                             <span class="text-legendary font-weight-bold">
                                 <span class="fas fa-fw fa-scroll-old"></span>
-                                Wishlist
+                                {{trans('page.character.show.wishlist')}}
                             </span>
                         @endif
                         <span class="js-sort-wishlists text-link">
@@ -152,14 +152,14 @@
                         <a href="{{ route('character.loot', ['guildId' => $guild->id, 'guildSlug' => $guild->slug, 'characterId' => $character->id, 'nameSlug' => $character->slug]) }}">
                             <span class="text-success font-weight-bold">
                                 <span class="fas fa-fw fa-sack"></span>
-                                Loot Received
+                                {{trans('page.character.show.loot_received')}}
                             </span>
                             <span class="small align-text- fas fa-fw fa-pencil"></span>
                         </a>
                     @else
                         <span class="text-success font-weight-bold">
                             <span class="fas fa-fw fa-sack"></span>
-                            Loot Received
+                            {{trans('page.character.show.loot_received')}}
                         </span>
                     @endif
                 </div>
@@ -191,14 +191,14 @@
                         <a href="{{ route('character.loot', ['guildId' => $guild->id, 'guildSlug' => $guild->slug, 'characterId' => $character->id, 'nameSlug' => $character->slug]) }}">
                             <span class="text-gold font-weight-bold">
                                 <span class="fas fa-fw fa-book"></span>
-                                Recipes
+                                {{trans('page.character.show.recipes')}}
                             </span>
                             <span class="small align-text- fas fa-fw fa-pencil"></span>
                         </a>
                     @else
                         <span class="text-gold font-weight-bold">
                             <span class="fas fa-fw fa-book"></span>
-                            Recipes
+                            {{trans('page.character.show.recipes')}}
                         </span>
                     @endif
                 </div>
@@ -241,7 +241,7 @@
                     <div class="col-12">
                         <span class="text-muted font-weight-bold">
                             <span class="fas fa-fw fa-comment-alt-lines"></span>
-                            Public Note
+                            {{trans('page.character.show.public_note')}}
                         </span>
                     </div>
                     <div class="col-12 mb-3 pl-4">
@@ -255,9 +255,9 @@
                             <div class="form-group">
                                 <label for="public_note" class="font-weight-bold">
                                     <span class="sr-only">Public Note</span>
-                                    <small class="text-muted">anyone in the guild can see this</small>
+                                    <small class="text-muted">{{trans('page.character.show.anyone_can_see')}}</small>
                                 </label>
-                                <textarea maxlength="140" data-max-length="140" name="public_note" rows="2" placeholder="anyone in the guild can see this" class="form-control dark">{{ old('public_note') ? old('public_note') : ($character ? $character->public_note : '') }}</textarea>
+                                <textarea maxlength="140" data-max-length="140" name="public_note" rows="2" placeholder="{{trans('page.character.show.anyone_can_see')}}" class="form-control dark">{{ old('public_note') ? old('public_note') : ($character ? $character->public_note : '') }}</textarea>
                             </div>
                         </div>
                     @endif
@@ -266,7 +266,7 @@
                         <div class="col-12">
                             <span class="text-muted font-weight-bold">
                                 <span class="fas fa-fw fa-shield"></span>
-                                Officer Note
+                                {{trans('page.character.show.officers_note')}}
                             </span>
                         </div>
                         <div class="col-12 mb-3 pl-4">
@@ -276,19 +276,19 @@
                                     <span class="js-show-note-edit fas fa-fw fa-pencil text-link cursor-pointer" title="edit"></span>
                                 @endif
                             @else
-                                Hidden in streamer mode
+                                {{trans('page.character.show.hidden_in_stream')}}
                             @endif
                         </div>
                         <div class="js-note-input col-12 mb-3 pl-4" style="display:none;">
                             <div class="form-group">
                                 <label for="officer_note" class="font-weight-bold">
                                     <span class="sr-only">Officer Note</span>
-                                    <small class="text-muted">only officers can see this</small>
+                                    <small class="text-muted">{{trans('page.character.show.officers_can_see')}}</small>
                                 </label>
                                 @if (isStreamerMode())
-                                    Hidden in streamer mode
+                                    {{trans('page.character.show.hidden_in_stream')}}
                                 @else
-                                    <textarea maxlength="140" data-max-length="140" name="officer_note" rows="2" placeholder="only officers can see this" class="form-control dark">{{ old('officer_note') ? old('officer_note') : ($character ? $character->officer_note : '') }}</textarea>
+                                    <textarea maxlength="140" data-max-length="140" name="officer_note" rows="2" placeholder="{{trans('page.character.show.officers_can_see')}}" class="form-control dark">{{ old('officer_note') ? old('officer_note') : ($character ? $character->officer_note : '') }}</textarea>
                                 @endif
                             </div>
                         </div>

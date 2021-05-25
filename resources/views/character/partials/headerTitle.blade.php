@@ -44,21 +44,21 @@
         @if (isset($showEdit) && $showEdit)
             <li class="list-inline-item">
                 <a href="{{ route('character.edit', ['guildId' => $guild->id, 'guildSlug' => $guild->slug, 'characterId' => $character->id, 'nameSlug' => $character->slug]) }}">
-                    <span class="fas fa-fw fa-pencil"></span>edit
+                    <span class="fas fa-fw fa-pencil"></span>{{trans('page.character.partials.header.edit')}}
                 </a>
             </li>
         @endif
         @if (isset($showEditLoot) && $showEditLoot)
             <li class="list-inline-item">
                 <a href="{{ route('character.loot', ['guildId' => $guild->id, 'guildSlug' => $guild->slug, 'characterId' => $character->id, 'nameSlug' => $character->slug]) }}">
-                    <span class="fas fa-fw fa-sack"></span>loot
+                    <span class="fas fa-fw fa-sack"></span>{{trans('page.character.partials.header.loot')}}
                 </a>
             </li>
         @endif
         @if (isset($showLogs) && $showLogs)
             <li class="list-inline-item">
                 <a href="{{ route('guild.auditLog', ['guildId' => $guild->id, 'guildSlug' => $guild->slug, 'character_id' => $character->id]) }}">
-                    <span class="fas fa-fw fa-clipboard-list-check"></span>history
+                    <span class="fas fa-fw fa-clipboard-list-check"></span>{{trans('page.character.partials.header.history')}}
                 </a>
             </li>
         @endif

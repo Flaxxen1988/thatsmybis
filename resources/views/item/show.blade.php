@@ -20,6 +20,10 @@
                                         } elseif ($guild->expansion_id === 2) {
                                             $wowheadSubdomain = 'tbc';
                                         }
+                                        $locale = \Illuminate\Support\Facades\Session::get('applocale');
+                                        if($locale != 'en'){
+                                            $wowheadSubdomain = $locale.'.'.$wowheadSubdomain;
+                                        }
                                     @endphp
 
                                     {{-- %69 (code for 'i') is a workaround that masks the link so wowhead's script won't parse it, allowing *us* to style it however we want --}}

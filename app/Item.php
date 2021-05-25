@@ -16,6 +16,8 @@ class Item extends Model
      * @var array
      */
     protected $fillable = [
+        'id',
+        'item_id',
         'expansion_id',
         'name',
         'source',
@@ -229,6 +231,14 @@ class Item extends Model
                 'order',
             ])
             ->orderBy('character_items.order');
+    }
+
+    public function languages(){
+        return $this->hasMany(ItemLanguage::class, 'item_id', 'item_id');
+    }
+
+    public function translate($locale){
+        return $this->languages()->whereLanguage($locale);
     }
 
     public function wishlistCharactersWithAttendance() {

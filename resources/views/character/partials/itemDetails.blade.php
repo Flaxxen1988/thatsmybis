@@ -16,7 +16,7 @@
                     </li>
                 @endif
                 <li class="list-inline-item">
-                    by
+                    {{trans('page.character.partials.itemdetails.by')}}
                     <a href="{{ route('member.show', ['guildId' => $guild->id, 'guildSlug' => $guild->slug, 'memberId' => $item->pivot->added_by, 'usernameSlug' => slug($item->added_by_username)]) }}" class="text-muted" target="_blank">
                         {{ $item->added_by_username }}
                     </a>
@@ -28,12 +28,12 @@
         </li>
         @if ($item->pivot->note)
             <li>
-                <strong>Note:</strong> {{ $item->pivot->note }}
+                <strong>{{trans('page.character.partials.itemdetails.note')}}</strong> {{ $item->pivot->note }}
             </li>
         @endif
         @if (isset($showOfficerNote) && $showOfficerNote && $item->pivot->officer_note)
             <li>
-                <strong>Officer Note:</strong> {{ $item->pivot->officer_note }}
+                <strong>{{trans('page.character.partials.itemdetails.officer_note')}}</strong> {{ $item->pivot->officer_note }}
             </li>
         @endif
     </ul>

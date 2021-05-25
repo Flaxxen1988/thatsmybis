@@ -61,7 +61,8 @@ class CharacterController extends Controller
             },
             'allCharacters' => function ($query) {
                 // Use comparison that takes accents into account... as so many WoW characters have accented names.
-                return $query->whereRaw('LOWER(characters.name) COLLATE utf8mb4_bin = (?)', strtolower(request()->input('name')));
+                return $query->where('characters.name', strtolower(request()->input('name')));
+                //return $query->whereRaw('LOWER(characters.name) COLLATE utf8mb4_unicode_ci = (?)', strtolower(request()->input('name')));
             },
             'raidGroups',
         ]);

@@ -45,39 +45,39 @@ class Character extends Model
         'personal_note',
     ];
 
-    const RACE_BLOOD_ELF = 'Blood Elf';
-    const RACE_ORC       = 'Orc';
-    const RACE_TAUREN    = 'Tauren';
-    const RACE_TROLL     = 'Troll';
-    const RACE_UNDEAD    = 'Undead';
-    const RACE_DRAENEI   = 'Draenei';
-    const RACE_DWARF     = 'Dwarf';
-    const RACE_GNOME     = 'Gnome';
-    const RACE_HUMAN     = 'Human';
-    const RACE_NIGHT_ELF = 'Night Elf';
+    const RACE_BLOOD_ELF = 'page.races.bloodelf';
+    const RACE_ORC       = 'page.races.orc';
+    const RACE_TAUREN    = 'page.races.tauren';
+    const RACE_TROLL     = 'page.races.troll';
+    const RACE_UNDEAD    = 'page.races.undead';
+    const RACE_DRAENEI   = 'page.races.draenei';
+    const RACE_DWARF     = 'page.races.dwarf';
+    const RACE_GNOME     = 'page.races.gnome';
+    const RACE_HUMAN     = 'page.races.human';
+    const RACE_NIGHT_ELF = 'page.races.nightelf';
 
-    const CLASS_DEATH_KNIGHT = 'Death Knight';
-    const CLASS_DRUID        = 'Druid';
-    const CLASS_HUNTER       = 'Hunter';
-    const CLASS_MAGE         = 'Mage';
-    const CLASS_PALADIN      = 'Paladin';
-    const CLASS_PRIEST       = 'Priest';
-    const CLASS_ROGUE        = 'Rogue';
-    const CLASS_SHAMAN       = 'Shaman';
-    const CLASS_WARLOCK      = 'Warlock';
-    const CLASS_WARRIOR      = 'Warrior';
+    const CLASS_DEATH_KNIGHT = 'page.classes.deathknight';
+    const CLASS_DRUID        = 'page.classes.druid';
+    const CLASS_HUNTER       = 'page.classes.hunter';
+    const CLASS_MAGE         = 'page.classes.mage';
+    const CLASS_PALADIN      = 'page.classes.paladin';
+    const CLASS_PRIEST       = 'page.classes.priest';
+    const CLASS_ROGUE        = 'page.classes.rogue';
+    const CLASS_SHAMAN       = 'page.classes.shaman';
+    const CLASS_WARLOCK      = 'page.classes.warlock';
+    const CLASS_WARRIOR      = 'page.classes.warrior';
 
-    const PROFESSION_ALCHEMY        = 'Alchemy';
-    const PROFESSION_BLACKSMITHING  = 'Blacksmithing';
-    const PROFESSION_ENCHANTING     = 'Enchanting';
-    const PROFESSION_ENGINEERING    = 'Engineering';
-    const PROFESSION_HERBALISM      = 'Herbalism';
-    const PROFESSION_INSCRIPTION    = 'Inscription';
-    const PROFESSION_JEWELCRAFTING  = 'Jewelcrafting';
-    const PROFESSION_LEATHERWORKING = 'Leatherworking';
-    const PROFESSION_MINING         = 'Mining';
-    const PROFESSION_SKINNING       = 'Skinning';
-    const PROFESSION_TAILORING      = 'Tailoring';
+    const PROFESSION_ALCHEMY        = 'page.professions.alchemy';
+    const PROFESSION_BLACKSMITHING  = 'page.professions.blacksmithing';
+    const PROFESSION_ENCHANTING     = 'page.professions.enchanting';
+    const PROFESSION_ENGINEERING    = 'page.professions.engineering';
+    const PROFESSION_HERBALISM      = 'page.professions.herbalism';
+    const PROFESSION_INSCRIPTION    = 'page.professions.inscription';
+    const PROFESSION_JEWELCRAFTING  = 'page.professions.jewelcrafting';
+    const PROFESSION_LEATHERWORKING = 'page.professions.leatherworking';
+    const PROFESSION_MINING         = 'page.professions.mining';
+    const PROFESSION_SKINNING       = 'page.professions.skinning';
+    const PROFESSION_TAILORING      = 'page.professions.tailoring';
 
     public function guild() {
         return $this->belongsTo(Guild::class);

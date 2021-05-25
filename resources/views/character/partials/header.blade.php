@@ -33,7 +33,7 @@
                     </li>
                 @endif
                 <li class="list-inline-item">
-                    {{ $character->class ? $character->class : '' }}
+                    {{ $character->class ? trans($character->class) : '' }}
                 </li>
             </ul>
         </li>
@@ -51,7 +51,7 @@
                 <small>
                     <span class="font-weight-bold text-danger">{{ $character->inactive_at ? 'ARCHIVED' : '' }}</span>
                     {{ $character->level ? $character->level : '' }}
-                    {{ $character->race  ? $character->race : '' }}
+                    {{ $character->race  ? trans($character->race) : '' }}
                     {{ $character->spec  ? $character->spec : '' }}
                 </small>
             </li>
@@ -61,8 +61,8 @@
             <li>
                 <small>
                     {{ $character->rank         ? 'Rank ' . $character->rank . ($character->profession_1 || $character->profession_2 ? ',' : '') : '' }}
-                    {{ $character->profession_1 ? $character->profession_1 . ($character->profession_2 ? ',' : '') : '' }}
-                    {{ $character->profession_2 ? $character->profession_2 : ''}}
+                    {{ $character->profession_1 ? trans($character->profession_1) . ($character->profession_2 ? ',' : '') : '' }}
+                    {{ $character->profession_2 ? trans($character->profession_2) : ''}}
                 </small>
             </li>
         @endif
@@ -75,7 +75,7 @@
                     {{-- Don't let this get lazy loaded on its own; force the dev to do it intentionally to avoid poor performance --}}
                     @if ($character->relationLoaded('member'))
                         <a href="{{ route('member.show', ['guildId' => $guild->id, 'guildSlug' => $guild->slug, 'memberId' => $character->member->id, 'usernameSlug' => $character->member->slug]) }}" class="">
-                            {{ $character->member->username }}'s character
+                            {{ $character->member->username }}{{trans('page.character.loot.partials.header.character')}}
                         </a>
                     @endif
                 @else

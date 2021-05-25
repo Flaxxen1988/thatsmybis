@@ -22,7 +22,7 @@ function addItemAutocompleteHandler() {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
                     dataType: "json",
-                    url: "/api/items/query/" + expansionId + "/" + request.term,
+                    url: "/api/items/query/" + expansionId + "/" + language + "/" + request.term,
                     success: function (data) {
                         response(data);
                         if (data.length <= 0) {

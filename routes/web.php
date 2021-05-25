@@ -187,7 +187,7 @@ Route::group([
 });
 
 Route::get('/{guildSlug}', 'GuildController@find')->name('guild.find');
-
+Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'LanguageController@switchLang']);
 // Route::group([
 //         'middleware' => 'acl',
 //         'is'         => env('PERMISSION_CLASS_LEADER'),
