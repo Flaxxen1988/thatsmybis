@@ -1,0 +1,26 @@
+<?php
+return [
+    'welcome' => 'Welcome',
+    'change_log' => 'Change log',
+    'and' => 'and',
+    'announcements' => 'announcements',
+    'are_on_discord' => 'are on the Discord',
+    'support_on_patreon' => 'support it on Patreon',
+    'keep_free' => 'to help keep it free for everyone.',
+    'if_like' => 'If you like the site, please',
+    'more_is_more' => 'More support = more features',
+    'your_guilds' => 'Your Guilds',
+    'create_character' => 'create character',
+    'old_guilds' => 'old & disabled guilds',
+    'click_to_show' => 'click to show',
+    'guild_disabled' => 'guild disabled',
+    'membership_disabled' => 'your membership has been disabled',
+    'dont_belong_to_guild' => "You don't belong to any guilds yet",
+    'sure_to_be_discord_master' => "Make sure you're a member of your guild's Discord",
+    'something_wrong' => "Something wrong with this message? Check the",
+    'why_see_this' => "for why you might be seeing this.",
+    'join_guild' => "Join Guild",
+    'are_u_guildmaster' => "Are you a Guild Master?",
+    'register_guild' => "Register a Guild",
+
+];

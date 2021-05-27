@@ -1,0 +1,26 @@
+<?php
+return [
+    'welcome' => 'Willkommen',
+    'change_log' => 'Veränderungen',
+    'and' => 'und',
+    'announcements' => 'Ankündigungen',
+    'are_on_discord' => 'sind auf dem Discord',
+    'support_on_patreon' => 'unterstütze sie auf Patreon',
+    'keep_free' => 'um sie frei für alle zu halten.',
+    'if_like' => 'Wenn du diese Seite magst',
+    'more_is_more' => 'Mehr Unterstützung = mehr Features',
+    'your_guilds' => 'Deine Gilden',
+    'create_character' => 'Character erstellen',
+    'old_guilds' => 'alte & deaktivierte Gilden',
+    'click_to_show' => 'Klicken um anzuzeigen',
+    'guild_disabled' => 'Gilde deaktivieren',
+    'membership_disabled' => 'Deine Mitgliedschaft wurde deaktiviert',
+    'dont_belong_to_guild' => "Du gehörst derzeit zu keiner Gilde",
+    'sure_to_be_discord_master' => "Gehe sicher das du Mitglied auf dem Discord deiner Gilde bist",
+    'something_wrong' => "Etwas ist mit der Nachricht schiefgegangen? Kontrolliere die",
+    'why_see_this' => "eventuell findest du dort etwas.",
+    'join_guild' => "Gilde beitreten",
+    'are_u_guildmaster' => "Bist du Gildenleiter",
+    'register_guild' => "Registriere eine Gilde",
+
+];
