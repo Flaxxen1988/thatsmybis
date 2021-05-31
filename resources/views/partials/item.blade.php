@@ -27,7 +27,7 @@ if (isset($guild) && $guild->expansion_id) {
     }
 }
 
-$locale = \Illuminate\Support\Facades\Session::get('applocale');
+$locale = \Illuminate\Support\Facades\App::getLocale();
 if($locale != 'en'){
     $wowheadSubdomain = $locale.'.'.$wowheadSubdomain;
 }

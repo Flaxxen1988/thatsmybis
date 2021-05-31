@@ -3,6 +3,7 @@ return [
     'character' => include('character/character.php'),
     'partials' => include ('partials/partials.php'),
     'member' => include ('member/member.php'),
+    'item' => include('item/item.php'),
     'races' => [
         'bloodelf' => 'Blutelf',
         'orc' => 'Ork',

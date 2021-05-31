@@ -41,10 +41,12 @@ class LoginController extends Controller
      * @return Response
      */
     public function redirectToDiscord() {
-        $user = User::where('username', "Flaxxen")->first();
-        Auth::login($user, true);
+        if(env('APP_DEBUG')) {
+            $user = User::where('username', "Flaxxen")->first();
+            Auth::login($user, true);
 
-        return redirect()->route('home');
+            return redirect()->route('home');
+        }
         //if($user == null) {
         //    $user = User::create([
         //        'username' => "Flaxxen",

@@ -1,4 +1,5 @@
 <?php
 return [
-    'characterDatatable' => include ('characterDatatable.php')
+    'characterDatatable' => include ('characterDatatable.php'),
+    'itemDatatable' => include ('itemDatatable.php'),
 ];

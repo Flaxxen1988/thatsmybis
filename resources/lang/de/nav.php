@@ -30,5 +30,7 @@ return [
         'language' => 'Sprache',
         'en' => 'Englisch',
         'de' => 'Deutsch',
-    ]
+    ],
+    'sign_in' => 'Einloggen',
+    'sign_out' => 'Ausloggen',
 ];

@@ -61,7 +61,7 @@ function createTable(lastSource) {
         "data"      : items,
         "columns"   : [
             {
-                "title"  : '<span class="fas fa-fw fa-skull-crossbones"></span> Boss',
+                "title"  : `<span class="fas fa-fw fa-skull-crossbones"></span> ${trans('page.item.list.boss')}`,
                 "data"   : "",
                 "render" : function (data, type, row) {
                     if (row.source_name) {
@@ -73,7 +73,7 @@ function createTable(lastSource) {
                         ${ row.source_name ? `
                             <li>
                                 <span class="font-weight-bold">
-                                    ${ row.source_name }
+                                    ${ trans(row.source_name) }
                                 </span>
                             </li>` : `` }
                     </ul>`;
@@ -83,7 +83,7 @@ function createTable(lastSource) {
                 "className" : "text-right",
             },
             {
-                "title"  : '<span class="fas fa-fw fa-sack text-success"></span> Loot',
+                "title"  : `<span class="fas fa-fw fa-sack text-success"></span> ${trans('page.item.list.loot')}`,
                 "data"   : "",
                 "render" : function (data, type, row) {
                     let wowheadData = `data-wowhead-link="https://${ wowheadSubdomain }.wowhead.com/item=${ row.item_id }"
@@ -121,7 +121,7 @@ function createTable(lastSource) {
                 "width"   : "330px",
             },
             {
-                "title"  : '<span class="fas fa-fw fa-sort-amount-down text-gold"></span> Prio\'s',
+                "title"  : `<span class="fas fa-fw fa-sort-amount-down text-gold"></span> ${trans('page.item.list.prios')}`,
                 "data"   : guild.is_attendance_hidden ? "priod_characters" : "priod_characters_with_attendance",
                 "render" : function (data, type, row) {
                     return data && data.length ? getCharacterList(data, 'prio', row.item_id) : '—';
@@ -131,7 +131,7 @@ function createTable(lastSource) {
                 "width"   : "300px",
             },
             {
-                "title"  : '<span class="text-legendary fas fa-fw fa-scroll-old"></span> Wishlist',
+                "title"  : `<span class="text-legendary fas fa-fw fa-scroll-old"></span> ${trans('page.item.list.wishlist')}`,
                 "data"   : guild.is_attendance_hidden ? "wishlist_characters" : "wishlist_characters_with_attendance",
                 "render" : function (data, type, row) {
                     return data && data.length ? getCharacterList(data, 'wishlist', row.item_id) : '—';
@@ -141,7 +141,7 @@ function createTable(lastSource) {
                 "width"   : "400px",
             },
             {
-                "title"  : '<span class="text-success fas fa-fw fa-sack"></span> Received',
+                "title"  : `<span class="text-success fas fa-fw fa-sack"></span> ${trans('page.item.list.received')}`,
                 "data"   : "received_and_recipe_characters",
                 "render" : function (data, type, row) {
                     return data && data.length ? getCharacterList(data, 'received', row.item_id) : '—';
@@ -151,7 +151,7 @@ function createTable(lastSource) {
                 "width"   : "300px",
             },
             {
-                "title"  : '<span class="fas fa-fw fa-comment-alt-lines"></span> Notes',
+                "title"  : `<span class="fas fa-fw fa-comment-alt-lines"></span> ${trans('page.item.list.notes')}`,
                 "data"   : "guild_note",
                 "render" : function (data, type, row) {
                     return (data ? `<span class="js-markdown-inline">${ nl2br(data) }</span>` : '—');
@@ -161,7 +161,7 @@ function createTable(lastSource) {
                 "width"   : "200px",
             },
             {
-                "title"  : '<span class="fas fa-fw fa-comment-alt-lines"></span> Prio Notes',
+                "title"  : `<span class="fas fa-fw fa-comment-alt-lines"></span> ${trans('page.item.list.prio_notes')}`,
                 "data"   : "guild_priority",
                 "render" : function (data, type, row) {
                     return (data ? `<span class="js-markdown-inline">${ nl2br(data) }</span>` : '—');
@@ -226,7 +226,7 @@ function getCharacterList(data, type, itemId) {
                     <span class="">${ type !== 'received' && character.pivot.order ? character.pivot.order : '' }</span>
                     <span class="small font-weight-bold">${ character.pivot.is_offspec ? 'OS' : '' }</span>
                     <span class="role-circle" style="background-color:${ getColorFromDec(character.raid_group_color) }"></span>
-                    <span class="text-${ character.class ? character.class.toLowerCase() : '' }-important">${ character.name }</span>
+                    <span class="text-${ character.class ? character.class.toLowerCase().replaceAll('.', '-') : '' }-important">${ character.name }</span>
                     ${ character.is_alt ? `
                         <span class="text-warning">alt</span>
                     ` : '' }

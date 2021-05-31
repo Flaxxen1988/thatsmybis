@@ -389,14 +389,14 @@
             @if (Auth::guest())
                 <a class="text-white" href="{{ route('discordLogin') }}" title="Sign in with Discord" rel="nofollow">
                     <span class="fal fa-fw fa-sign-in-alt"></span>
-                    Sign In
+                    {{trans('nav.sign_in')}}
                 </a>
             @else
                 <a href="{{ route('logout') }}"
                     class="text-white"
                     onclick="event.preventDefault();
                              document.getElementById('logout-form').submit();">
-                    <span class="text-grey fal fa-fw fa-sign-out"></span> Sign Out ({{ Auth::user()->username }})
+                    <span class="text-grey fal fa-fw fa-sign-out"></span> {{trans('nav.sign_out')}} ({{ Auth::user()->username }})
                 </a>
 
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

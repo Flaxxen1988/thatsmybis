@@ -191,8 +191,8 @@
             @else
                 var wowheadSubdomain = "www";
             @endif
-            @if(\Illuminate\Support\Facades\Session::get('applocale') != 'en')
-                wowheadSubdomain = '{{ \Illuminate\Support\Facades\Session::get('applocale') }}' + '.' + wowheadSubdomain;
+            @if(\Illuminate\Support\Facades\App::getLocale() != 'en')
+                wowheadSubdomain = '{{ \Illuminate\Support\Facades\App::getLocale() }}' + '.' + wowheadSubdomain;
             @endif
         @elseif (isset($expansionId))
             var expansionId = {{ $expansionId }};
@@ -203,8 +203,8 @@
             @else
                 var wowheadSubdomain = "www";
             @endif
-            @if(\Illuminate\Support\Facades\Session::get('applocale') != 'en')
-                wowheadSubdomain = '{{\Illuminate\Support\Facades\Session::get('applocale') }}' + '.' + wowheadSubdomain;
+            @if(\Illuminate\Support\Facades\App::getLocale() != 'en')
+                wowheadSubdomain = '{{\Illuminate\Support\Facades\App::getLocale() }}' + '.' + wowheadSubdomain;
             @endif
         @else
             var expansionId = 1;

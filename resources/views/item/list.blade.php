@@ -12,19 +12,19 @@
             </h1>
             @if (!$guild)
                 <p class="font-weight-bold text-gold">
-                    To assign Prios and Wishlists sign in and register your guild.
+                    {{trans('page.item.list.sign_in_for_prio')}}
                 </p>
             @elseif ($viewPrioPermission || $viewOfficerNotesPermission)
                 <ul class="list-inline">
                     @if ($viewOfficerNotesPermission)
                         <li class="list-inline-item">
-                            <a href="{{ route('guild.item.list.edit', ['guildId' => $guild->id, 'guildSlug' => $guild->slug, 'instanceSlug' => $instance->slug]) }}">edit notes</a>
+                            <a href="{{ route('guild.item.list.edit', ['guildId' => $guild->id, 'guildSlug' => $guild->slug, 'instanceSlug' => $instance->slug]) }}">{{trans('page.item.list.edit_notes')}}</a>
                         </li>
                     @endif
                     @if ($viewPrioPermission)
                         <li class="list-inline-item">&sdot;</li>
                         <li class="list-inline-item">
-                            <a href="{{ route('guild.prios.chooseRaidGroup', ['guildId' => $guild->id, 'guildSlug' => $guild->slug, 'instanceSlug' => $instance->slug]) }}">edit prios</a>
+                            <a href="{{ route('guild.prios.chooseRaidGroup', ['guildId' => $guild->id, 'guildSlug' => $guild->slug, 'instanceSlug' => $instance->slug]) }}">{{trans('page.item.list.edit_prios')}}</a>
                         </li>
                     @endif
                 </ul>

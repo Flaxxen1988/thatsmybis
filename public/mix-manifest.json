@@ -6,5 +6,6 @@
     "/js/processed/itemMassInput.js": "/js/processed/itemMassInput.js",
     "/js/processed/roster.js": "/js/processed/roster.js",
     "/js/processed/raidEdit.js": "/js/processed/raidEdit.js",
+    "/js/processed/lodash.js": "/js/processed/lodash.js",
     "/css/processed/main.css": "/css/processed/main.css"
 }
