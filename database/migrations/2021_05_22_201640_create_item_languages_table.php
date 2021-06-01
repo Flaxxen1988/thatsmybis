@@ -47,6 +47,26 @@ class CreateItemLanguagesTable extends Migration
         'Tailoring' => Character::PROFESSION_TAILORING
     ];
 
+    protected $raids = [
+        'zul_gurub' => "Zul'Gurub",
+        'aq40' => "Ruins of Ahn'Qiraj",
+        'worldbosses' => "World Bosses",
+        'moltencore' => "Molten Core",
+        'ony_classic' => "Onyxia's Lair",
+        'bwl' => "Blackwing Lair",
+        'aq20' => "Temple of Ahn'Qiraj",
+        'naxx' => "Naxxramas",
+        'karazhan' => "Karazhan",
+        'gruul' => "Gruul's Lair",
+        'magtheridon' => "Magtheridon's Lair",
+        'ssc' => 'Serpentshrine Cavern',
+        'hyjal' => 'Hyjal Summit',
+        'tempest_keep' => 'Tempest Keep',
+        'black_temple' => 'Black Temple',
+        'zul_aman' => "Zul'Aman",
+        'sunwell' => 'Sunwell Plateau',
+    ];
+
     /**
      * Run the migrations.
      *
@@ -84,6 +104,12 @@ class CreateItemLanguagesTable extends Migration
             Character::where('profession_2', $language)
                 ->update([
                     'profession_2' => $trans
+                ]);
+        }
+        foreach ($this->raids as $tr => $raid){
+            \App\Instance::whereName($raid)
+                ->update([
+                    'name' => 'page.raids.'.$tr
                 ]);
         }
     }

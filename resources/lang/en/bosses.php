@@ -124,4 +124,6 @@ return [
     "eredar-twins" => "Eredar Twins",
     "muru" => "M'uru",
     "kiljaeden" => "Kil'Jaeden",
+    "doom-lord-kazzak" => "Doom Lord Kazzak",
+    "doomwalker" => "Doomwalker",
 ];

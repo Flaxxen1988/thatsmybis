@@ -6,4 +6,5 @@ return [
     'received' => 'erhalten',
     'notes' => 'Notizen',
     'prio_notes' => 'Prioritäten notizen',
+    'columns' => 'Spalten',
 ];

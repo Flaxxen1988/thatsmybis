@@ -19,7 +19,7 @@
 
         <li class="list-inline-item font-weight-light">
             <span class="text-muted fas fa-fw fa-eye-slash"></span>
-            Columns
+            {{trans('page.partials.itemDatatable.columns')}}
         </li>
         @if ($showPrios)
             <li class="list-inline-item">&sdot;</li>

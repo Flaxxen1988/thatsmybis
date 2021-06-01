@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title',  $instance->name . ' - ' . config('app.name'))
+@section('title',  trans($instance->name) . ' - ' . config('app.name'))
 
 @section('content')
 
@@ -8,7 +8,7 @@
         <div class="col-12 text-center pr-0 pl-0">
             <h1 class="font-weight-medium mb-0 font-blizz">
                 <span class="fas fa-fw fa-sack text-success"></span>
-                {{ $instance->name }}
+                {{ trans($instance->name) }}
             </h1>
             @if (!$guild)
                 <p class="font-weight-bold text-gold">

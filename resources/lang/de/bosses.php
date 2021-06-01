@@ -124,4 +124,6 @@ return [
     "eredar-twins" => "Eredar Zwillinge",
     "muru" => "M'uru",
     "kiljaeden" => "Kil'Jaeden",
+    "doom-lord-kazzak" => "Verdammnislord Kazzak",
+    "doomwalker" => "Verdammniswandler",
 ];

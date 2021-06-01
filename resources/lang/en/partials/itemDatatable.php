@@ -6,4 +6,5 @@ return [
     'received' => 'received',
     'notes' => 'Notes',
     'prio_notes' => 'Prio Notes',
+    'columns' => 'Columns',
 ];
