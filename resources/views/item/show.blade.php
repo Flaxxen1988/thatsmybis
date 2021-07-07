@@ -38,7 +38,7 @@
                         </li>
                         <li class="list-inline-item">
                             <a href="{{ route('guild.auditLog', ['guildId' => $guild->id, 'guildSlug' => $guild->slug, 'item_id' => $item->item_id]) }}">
-                                <span class="fas fa-fw fa-clipboard-list-check"></span>history
+                                <span class="fas fa-fw fa-clipboard-list-check"></span>{{trans('page.item.show.history')}}
                             </a>
                         </li>
                     </ul>
@@ -70,7 +70,7 @@
                                 <div class="col-12" style="{{ $guild->tier_mode ? '' : 'display:none;' }}">
                                     <span class="text-muted font-weight-bold">
                                         <span class="fas fa-fw fa-trophy"></span>
-                                        Guild Tier
+                                        {{trans('page.item.show.guild_tier')}}
                                     </span>
                                 </div>
                                 <div class="col-12 mb-3 pl-4 font-weight-bold text-tier-{{ $notes['tier'] ? $notes['tier'] : '' }}" style="{{ $guild->tier_mode ? '' : 'display:none;' }}">
@@ -83,7 +83,7 @@
                                     <div class="js-note-input col-12 mb-3 pl-4" style="display:none;">
                                         <div class="form-group">
                                             <label for="tier" class="sr-only">
-                                                Item Tier
+                                                {{trans('page.item.show.item_tier')}}
                                             </label>
                                             <select name="tier" class="form-control dark">
                                                 <option value="" selected>
@@ -104,7 +104,7 @@
                                 <div class="col-12">
                                     <span class="text-muted font-weight-bold">
                                         <span class="fas fa-fw fa-comment-alt-lines"></span>
-                                        Guild Note
+                                        {{trans('page.item.show.guild_note')}}
                                     </span>
                                 </div>
                                 <div class="col-12 mb-3 pl-4">
@@ -117,7 +117,7 @@
                                     <div class="js-note-input col-12 mb-3 pl-4" style="display:none;">
                                         <div class="form-group">
                                             <label for="note" class="sr-only">
-                                                Item Note
+                                                {{trans('page.item.show.item_note')}}
                                             </label>
                                             <textarea maxlength="140" data-max-length="140" name="note" rows="2" placeholder="add a note" class="form-control dark">{{ old('note') ? old('note') : ($item ? $notes['note'] : '') }}</textarea>
                                         </div>
@@ -127,7 +127,7 @@
                                 <div class="col-12">
                                     <span class="text-muted font-weight-bold">
                                         <span class="fas fa-fw fa-sort-amount-down"></span>
-                                        Guild Prio Note
+                                        {{trans('page.item.show.guild_prio_note')}}
                                     </span>
                                 </div>
                                 <div class="col-12 mb-3 pl-4">
@@ -140,7 +140,7 @@
                                     <div class="js-note-input col-12 mb-3 pl-4" style="display:none;">
                                         <div class="form-group">
                                             <label for="priority" class="sr-only">
-                                                Item Priority
+                                                {{trans('page.item.show.item_prio')}}
                                             </label>
                                             <textarea maxlength="140" data-max-length="140" name="priority" rows="2" placeholder="eg. mage > warlock > boomkin > arcane shot hunter" class="form-control dark">{{ old('priority') ? old('priority') : ($item ? $notes['priority'] : '') }}</textarea>
                                         </div>
@@ -158,7 +158,7 @@
                             <ul class="list-inline">
                                 <li class="list-inline-item">
                                     <h2 class="font-weight-bold mb-3">
-                                        Character Prios
+                                        {{trans('page.item.show.character_prio')}}
                                     </h2>
                                 </li>
                                 <li class="list-inline-item">
@@ -166,7 +166,7 @@
                                         <div class="dropdown">
                                             <span class="dropdown-toggle text-link" role="button" id="editPrioLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <span class="fas fa-fw fa-pencil"></span>
-                                                edit
+                                                {{trans('page.item.show.edit')}}
                                             </span>
                                             <div class="dropdown-menu" aria-labelledby="editPrioLink">
                                                 @foreach ($raidGroups as $raidGroup)
@@ -210,7 +210,7 @@
                                                     class="text-{{ $character->class ? strtolower($character->class) : ''}}-important tag d-inline">
                                                     <span class="role-circle" style="background-color:{{ getHexColorFromDec(($character->raid_group_color ? $character->raid_group_color : '')) }}"></span>{{ $character->name }}
                                                     @if ($character->is_alt)
-                                                        <span class="text-legendary">alt</span>
+                                                        <span class="text-legendary">{{trans('page.item.show.alt')}}</span>
                                                     @endif
                                                     @if (!$guild->is_attendance_hidden && (isset($character->attendance_percentage) || isset($character->raid_count)))
                                                         <span class="small">
@@ -231,7 +231,7 @@
                                 </ul>
                             @else
                                 <div class="lead ml-4 mt-3">
-                                    <em>None</em>
+                                    <em>{{trans('page.item.show.none')}}</em>
                                 </div>
                             @endif
                         </li>
@@ -244,7 +244,7 @@
     {{--
     <div class="row pt-2 mb-3 bg-lightest rounded">
         <div class="col-12">
-            <h2 class="font-weight-bold pl-2">Prio'd</h2>
+            <h2 class="font-weight-bold pl-2">{{trans('page.item.show.priod')}}</h2>
         </div>
         <div class="col-12 pr-0 pl-0">
             @if ($priodCharacters && $priodCharacters->count() > 0)
@@ -252,7 +252,7 @@
             @else
                 <ul>
                     <li class="lead no-bullet">
-                        <em>Nobody has been prio'd for this item yet</em>
+                        <em>{{trans('page.item.show.nobody_priod')}}</em>
                     </li>
                 </ul>
             @endif
@@ -265,8 +265,8 @@
             <div class="col-12">
                 <h2 class="font-weight-bold pl-2">
                     <span class="fas fa-fw fa-scroll-old text-legendary"></span>
-                    Wishlisted
-                    <span class="small text-muted">ordered by who ranked it higher</span>
+                    {{trans('page.item.show.wishlisted')}}
+                    <span class="small text-muted">{{trans('page.item.show.ordered_by_rank')}}</span>
                 </h2>
             </div>
             <div class="col-12 pr-0 pl-0">
@@ -275,7 +275,7 @@
                 @else
                     <ul>
                         <li class="lead no-bullet">
-                            <em>Nobody has this item in their wishlist yet</em>
+                            <em>{{trans('page.item.show.nobody_wishlisted')}}</em>
                         </li>
                     </ul>
                 @endif
@@ -296,14 +296,14 @@
                             <ul class="list-inline">
                                 @if ($character->pivot->is_offspec)
                                     <li class="list-inline-item font-weight-bold">
-                                        <span title="offspec item">OS</span>
+                                        <span title="{{trans('page.item.show.os_item')}}">OS</span>
                                     </li>
                                 @endif
                                 @if ($character->pivot->received_at || $character->pivot->created_at)
                                     <li class="list-inline-item text-muted small">
-                                        received
+                                        {{trans('page.item.show.received')}}
                                         <span class="js-watchable-timestamp js-timestamp-title" data-timestamp="{{ $character->pivot->received_at ? $character->pivot->received_at : $character->pivot->created_at }}"></span>
-                                        ago
+                                        {{trans('page.item.show.received2')}}
                                     </li>
                                 @endif
                             </ul>
@@ -313,7 +313,7 @@
                 </ul>
             @else
                 <div class="lead mb-3">
-                    <em>Nobody has this item in their character sheet yet</em>
+                    <em>{{trans('page.item.show.nobody_in_sheet')}}</em>
                 </div>
             @endif
         </div>

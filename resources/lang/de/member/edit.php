@@ -1,0 +1,20 @@
+<?php
+return [
+    'username' => 'Benutzername',
+    'eg_username' => 'z.B. Gurgthock',
+    'public_note' => 'Öffentliche Notiz',
+    'public_note_desc' => 'jeder in der Gilde kann diese sehen',
+    'officer_note' => 'Offiziersnotiz',
+    'officer_note_desc' => 'nur Offiziere können diese sehen',
+    'streamer_hidden' => 'versteckt im Streamermodus',
+    'personal_note' => 'Persönliche Notiz',
+    'personal_note_desc' => 'nur du kannst diese sehen',
+    'unlock_received_loot' => 'Entsperre Liste für erhaltene Beute',
+    'allow_edit_received_loot' => 'erlaube Mitglieder ihre erhaltene Beute zu ändern,',
+    'overrides_guild_settings' => 'überschreibt Gildeneinstellungen',
+    'unlock_wishlist' => 'Entsperre Wunschlisten',
+    'access_revoke' => 'Zugriff widerrufen, aus Listen verstecken, characteres werden Archiviert',
+    'save' => 'Speichern',
+    'locked' => 'Gesperrt',
+    'already_unlocked' => 'Bereits entsperrt',
+];

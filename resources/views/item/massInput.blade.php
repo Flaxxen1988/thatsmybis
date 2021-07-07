@@ -18,12 +18,12 @@
                 <div class="col-12 pt-2 mb-2">
                     <h1 class="font-weight-medium">
                         <span class="fas fa-fw fa-helmet-battle text-dk"></span>
-                        Assign Loot
+                        {{trans('page.item.massInput.assign')}}
                     </h1>
                     <small>
-                        <strong>Hint:</strong> Keep the roster and/or item pages open in another window to review who deserves what
+                        <strong>{{trans('page.item.massInput.hint')}}</strong> {{trans('page.item.massInput.hint_msg')}}
                         <br>
-                        <strong>Note:</strong> If a character has the same item prio'd in multiple raid groups, we'll only remove/flag the first one we find.
+                        <strong>{{trans('page.item.massInput.note')}}</strong> {{trans('page.item.massInput.note_msg')}}
                     </small>
                 </div>
             </div>
@@ -35,15 +35,15 @@
                             <div class="form-group">
                                 <button type="button" class="js-toggle-import btn btn-primary">
                                     <span class="fas fa-fw fa-file-import"></span>
-                                    Import Loot
+                                    {{trans('page.item.massInput.import')}}
                                 </button>
                             </div>
                         </div>
                         <div id="importArea" class="col-12" style="display:none;">
                             <label for="import_textarea" class="font-weight-bold">
                                 <span class="fas fa-fw fa-align-left text-muted"></span>
-                                Paste your <abbr title="Comma Separated Value">CSV</abbr> data
-                                <span class="small text-muted">max {{ $maxItems }} rows</span>
+                                {{trans('page.item.massInput.paste')}} <abbr title="Comma Separated Value">CSV</abbr> {{trans('page.item.massInput.data')}}
+                                <span class="small text-muted">{{trans('page.item.massInput.max')}} {{ $maxItems }} {{trans('page.item.massInput.rows')}}</span>
                             </label>
                             <!-- For supporting other input methods
                             <div class="tabs">
@@ -57,40 +57,24 @@
                                 <textarea id="importTextarea"
                                     name="import_textarea"
                                     rows="20"
-                                    placeholder="Accepts RCLootCouncil CSV data, or any CSV. First line must contain headers for the data (case sensitive).
-eg.
-    character,date,itemID,itemName,note
-    Gurgthock,2020-10-01,18821,Quick Strike Ring,That's my BIS
-
-Supported header fields: (CASE SENSITIVE)
-================
-player OR character (required)
-itemID OR item_id (required)
-item OR itemName OR item_name
-date OR dateTime OR date_time
-publicNote OR public_note (max 140 chars)
-(officerNote OR officer_note) + (note AND/OR votes AND/OR response) (max 140 chars)
-offspec
-
-If note, response, public note, or officer note are equal to 'OS', offspec flag will be set to true.
-"
+                                    placeholder="{{trans('page.item.massInput.csv_info')}}"
                                     class="form-control dark"
                                     autocomplete="off"></textarea>
                             </div>
                             <div class="form-group">
                                 <p class="small text-muted">
-                                    Doesn't match your data schema? Request support for it <a href="{{ env('APP_DISCORD') }}" target="_blank">on our Discord</a>.
+                                    {{trans('page.item.massInput.support_csv_schema')}} <a href="{{ env('APP_DISCORD') }}" target="_blank">{{trans('page.item.massInput.on_disc')}}</a>.
                                 </p>
                                 <p class="text-danger font-weight-bold">
-                                    WARNING!!! Loading this will remove any items you've already added to this page.
+                                    {{trans('page.item.massInput.remove_warning')}}
                                 </p>
                                 <button type="button" id="submitImport" class="btn btn-warning">
                                     <span class="fas fa-fw fa-file-export"></span>
-                                    Load Data
+                                    {{trans('page.item.massInput.load')}}
                                 </button>
                                 <button type="button" class="js-toggle-import btn btn-primary">
                                     <span class="fas fa-fw fa-times-circle"></span>
-                                    Nevermind
+                                    {{trans('page.item.massInput.nvm')}}
                                 </button>
                                 <div id="loading-indicator" class="mt-3 ml-5" style="display:none;">
                                     <div class="spinner-border" role="status">
@@ -117,14 +101,14 @@ If note, response, public note, or officer note are equal to 'OS', offspec flag 
                                     <label class="text-muted">
                                         <input type="checkbox" name="toggle_notes" value="1" class="" autocomplete="off"
                                             {{ old('toggle_notes') && old('toggle_notes') != 1 ? '' : 'checked' }}>
-                                            Show note inputs
+                                        {{trans('page.item.massInput.show_note_inputs')}}
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label class="text-muted">
                                         <input type="checkbox" name="toggle_dates" value="1" class="" autocomplete="off"
                                             {{ old('toggle_dates') && old('toggle_dates') == 1 ? 'checked' : '' }}>
-                                            Show date inputs <span class="text-muted small">for backdating old loot</span>
+                                        {{trans('page.item.massInput.show_date_inputs')}} <span class="text-muted small">{{trans('page.item.massInput.for_backdating')}}</span>
                                     </label>
                                 </div>
                             </div>
@@ -135,9 +119,9 @@ If note, response, public note, or officer note are equal to 'OS', offspec flag 
                             <div class="form-group">
                                 <label for="date_default" class="font-weight-bold">
                                     <span class="fas fa-fw fa-calendar-alt text-muted"></span>
-                                    Set default date <span class="text-muted small">optional, overwrites all date inputs</span>
+                                    {{trans('page.item.massInput.set_default_date')}} <span class="text-muted small">{{trans('page.item.massInput.overwrite_date_warning')}}</span>
                                 </label>
-                                <input name="date_default" min="2004-09-22" max="{{ $maxDate }}" type="date" placeholder="defaults to today" class="form-control dark" autocomplete="off">
+                                <input name="date_default" min="2004-09-22" max="{{ $maxDate }}" type="date" placeholder="{{trans('page.item.massInput.default_today')}}" class="form-control dark" autocomplete="off">
                             </div>
                         </div>
                     </div>
@@ -166,7 +150,7 @@ If note, response, public note, or officer note are equal to 'OS', offspec flag 
                         <div class="col-lg-3 col-sm-6 col-12 pt-2 mb-2">
                             <label for="raid_group_id font-weight-light">
                                 <span class="text-muted fas fa-fw fa-helmet-battle"></span>
-                                Raid Group
+                                {{trans('page.item.massInput.raid_group')}}
                             </label>
                             <select name="raid_group_id" class="form-control dark">
                                 <option value="">—</option>
@@ -181,7 +165,7 @@ If note, response, public note, or officer note are equal to 'OS', offspec flag 
                         <!-- Character select filter -->
                         <div class="col-lg-3 col-sm-6 col-12 pt-2 mb-2">
                             <label for="raid_group_filter font-weight-light">
-                                <span class="text-muted">Character dropdown filter</span>
+                                <span class="text-muted">{{trans('page.item.massInput.character_dropdown')}}</span>
                             </label>
                             <select id="raid_group_filter" class="form-control dark">
                                 <option value="">—</option>
@@ -210,10 +194,10 @@ If note, response, public note, or officer note are equal to 'OS', offspec flag 
                                             <label for="name" class="font-weight-bold">
                                                 <span class="fas fa-fw fa-sack text-success"></span>
                                                 @if ($i == 0)
-                                                    Item
+                                                    {{trans('page.item.massInput.item')}}
                                                 @else
                                                     <span class="sr-only">
-                                                        Item
+                                                        {{trans('page.item.massInput.item')}}
                                                     </span>
                                                 @endif
                                             </label>
@@ -221,7 +205,7 @@ If note, response, public note, or officer note are equal to 'OS', offspec flag 
                                             <input maxlength="50" data-max-length="50" data-is-single-input="1" data-id="{{ $i }}" type="text" placeholder="item name"
                                                 class="js-item-autocomplete js-input-text js-show-next form-control dark {{ $errors->has($itemId) ? 'form-danger' : '' }}" autocomplete="off"
                                                 style="{{ old($itemId) ? 'display:none;' : '' }}">
-                                            <span class="js-loading-indicator" style="display:none;">Searching...</span>&nbsp;
+                                            <span class="js-loading-indicator" style="display:none;">{{trans('page.item.massInput.searching')}}</span>&nbsp;
 
                                             <ul class="no-bullet no-indent mb-0">
                                                 <li class="input-item {{ $errors->has($itemId) ? 'text-danger font-weight-bold' : '' }} {{ $errors->has($itemId) ? 'form-danger' : '' }}" style="{{ old($itemId) ? '' : 'display:none;' }}">
@@ -250,11 +234,11 @@ If note, response, public note, or officer note are equal to 'OS', offspec flag 
                                             <label for="character_id" class="font-weight-bold">
                                                 @if ($i == 0)
                                                     <span class="fas fa-fw fa-user text-muted"></span>
-                                                    Character
+                                                    {{trans('page.item.massInput.character')}}
                                                 @else
                                                     &nbsp;
                                                     <span class="sr-only">
-                                                        Character
+                                                        {{trans('page.item.massInput.character')}}
                                                     </span>
                                                 @endif
                                             </label>
@@ -289,10 +273,10 @@ If note, response, public note, or officer note are equal to 'OS', offspec flag 
                                         <div class="form-group">
                                             <label for="item[{{ $i }}][is_offspec]" class="font-weight-bold">
                                                 @if ($i == 0)
-                                                    Offspec
+                                                    {{trans('page.item.massInput.os')}}
                                                 @else
                                                     <span class="sr-only">
-                                                        Offspec
+                                                        {{trans('page.item.massInput.os')}}
                                                     </span>
                                                     &nbsp;
                                                 @endif
@@ -314,16 +298,16 @@ If note, response, public note, or officer note are equal to 'OS', offspec flag 
                                             <label for="item[{{ $i }}][note]" class="font-weight-bold">
                                                 @if ($i == 0)
                                                     <span class="fas fa-fw fa-comment-alt-lines text-muted"></span>
-                                                    Note
-                                                    <span class="text-muted small">optional</span>
+                                                    {{trans('page.item.massInput.notes')}}
+                                                    <span class="text-muted small">{{trans('page.item.massInput.optional')}}</span>
                                                 @else
                                                     &nbsp;
                                                     <span class="sr-only">
-                                                        Optional Note
+                                                        {{trans('page.item.massInput.optional_note')}}
                                                     </span>
                                                 @endif
                                             </label>
-                                            <input name="item[{{ $i }}][note]" maxlength="140" data-max-length="140" type="text" placeholder="brief public note"
+                                            <input name="item[{{ $i }}][note]" maxlength="140" data-max-length="140" type="text" placeholder="{{trans('page.item.massInput.note_desc')}}"
                                                 class="js-show-next form-control dark {{ $errors->has('item.' . $i . '.note') ? 'form-danger' : '' }}" autocomplete="off"
                                                 value="{{ old('item.' . $i . '.note') ? old('item.' . $i . '.note') : '' }}">
                                         </div>
@@ -336,16 +320,16 @@ If note, response, public note, or officer note are equal to 'OS', offspec flag 
                                             <label for="item[{{ $i }}][officer_note]" class="font-weight-bold">
                                                 @if ($i == 0)
                                                     <span class="fas fa-fw fa-shield text-muted"></span>
-                                                    Officer Note
-                                                    <span class="text-muted small">optional</span>
+                                                    {{trans('page.item.massInput.officer_note')}}
+                                                    <span class="text-muted small">{{trans('page.item.massInput.optional')}}</span>
                                                 @else
                                                     &nbsp;
                                                     <span class="sr-only">
-                                                        Optional Officer Note
+                                                        {{trans('page.item.massInput.optional_officer_note')}}
                                                     </span>
                                                 @endif
                                             </label>
-                                            <input name="item[{{ $i }}][officer_note]" maxlength="140" data-max-length="140" type="text" placeholder="officer note"
+                                            <input name="item[{{ $i }}][officer_note]" maxlength="140" data-max-length="140" type="text" placeholder="{{trans('page.item.massInput.officer_note')}}"
                                                 class="js-show-next form-control dark {{ $errors->has('item.' . $i . '.officer_note') ? 'form-danger' : '' }}" autocomplete="off"
                                                 value="{{ old('item.' . $i . '.officer_note') ? old('item.' . $i . '.officer_note') : '' }}">
                                         </div>
@@ -358,16 +342,16 @@ If note, response, public note, or officer note are equal to 'OS', offspec flag 
                                             <label for="item[{{ $i }}][received_at]" class="font-weight-bold">
                                                 @if ($i == 0)
                                                     <span class="fas fa-fw fa-calendar-alt text-muted"></span>
-                                                    <abbr title="RCLC date imports may be off by +/-24h due to timezone issues.">Date</abbr>
-                                                    <span class="text-muted small">optional</span>
+                                                    <abbr title="{{trans('page.item.massInput.rclc_date_issue')}}">{{trans('page.item.massInput.date')}}</abbr>
+                                                    <span class="text-muted small">{{trans('page.item.massInput.optional')}}</span>
                                                 @else
                                                     &nbsp;
                                                     <span class="sr-only">
-                                                        Optional Date
+                                                        {{trans('page.item.massInput.optional_date')}}
                                                     </span>
                                                 @endif
                                             </label>
-                                            <input name="item[{{ $i }}][received_at]" min="2004-09-22" max="{{ $maxDate }}" type="date" placeholder="defaults to today"
+                                            <input name="item[{{ $i }}][received_at]" min="2004-09-22" max="{{ $maxDate }}" type="date" placeholder="{{trans('page.item.massInput.default_today')}}"
                                                 class="js-show-next form-control dark {{ $errors->has('item.' . $i . '.received_at') ? 'form-danger' : '' }}" autocomplete="off"
                                                 {{ old('item.' . $i . '.received_at') ? old('item.' . $i . '.received_at') : '' }}>
                                         </div>
@@ -380,23 +364,23 @@ If note, response, public note, or officer note are equal to 'OS', offspec flag 
                                             <label for="item[{{ $i }}][import_id]" class="font-weight-bold">
                                                 @if ($i == 0)
                                                     <span class="fas fa-fw fa-fingerprint text-muted"></span>
-                                                        <abbr title="We use this to prevent your guild from loading duplicates of the same import data.">Unique Import ID</abbr>
-                                                    <span class="text-muted small">optional</span>
+                                                        <abbr title="{{trans('page.item.massInput.uid_desc')}}">{{trans('page.item.massInput.uid')}}</abbr>
+                                                    <span class="text-muted small">{{trans('page.item.massInput.optional')}}</span>
                                                 @else
                                                     &nbsp;
                                                     <span class="sr-only">
-                                                        Unique Import ID
+                                                        {{trans('page.item.massInput.uid')}}
                                                     </span>
                                                 @endif
                                             </label>
-                                            <input name="item[{{ $i }}][import_id]" maxlength="20" data-max-length="20" type="text" placeholder="unique ID from loot addon"
+                                            <input name="item[{{ $i }}][import_id]" maxlength="20" data-max-length="20" type="text" placeholder="{{trans('page.item.massInput.uid_addon')}}"
                                                 class="js-show-next form-control dark {{ $errors->has('item.' . $i . '.import_id') ? 'form-danger' : '' }}" autocomplete="off"
                                                 value="{{ old('item.' . $i . '.import_id') ? old('item.' . $i . '.import_id') : '' }}">
                                         </div>
                                     </div>
                                     @if ($i == $maxItems - 1)
                                         <div class="col-12 mt-3 text-danger font-weight-bold">
-                                            Max items added
+                                            {{trans('page.item.massInput.max_items_added')}}
                                         </div>
                                     @endif
                                 </div>
@@ -411,21 +395,21 @@ If note, response, public note, or officer note are equal to 'OS', offspec flag 
                                     <label class="text-muted">
                                         <input type="checkbox" name="skip_missing_characters" value="1" class="" autocomplete="off"
                                             {{ (old('skip_missing_characters') && old('skip_missing_characters') == 1) ? 'checked' : '' }}>
-                                            Skip items that don't have a character <abbr title="useful for ignoring characters that aren't in your guild when importing data">?</abbr>
+                                        {{trans('page.item.massInput.skip_no_character')}} <abbr title="{{trans('page.item.massInput.skip_no_character_desc')}}">?</abbr>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label class="text-muted">
                                         <input type="checkbox" name="delete_wishlist_items" value="1" class="" autocomplete="off"
                                             {{ (old('delete_wishlist_items') && old('delete_wishlist_items') == 1) || (!old('delete_wishlist_items') && $guild->is_wishlist_autopurged) ? 'checked' : '' }}>
-                                            Delete assigned items from each character's wishlist <abbr title="if unchecked, corresponding wishlist items will be flagged as received but still be visible">?</abbr>
+                                        {{trans('page.item.massInput.delete_from_wishlist')}} <abbr title="{{trans('page.item.massInput.delete_from_wishlist_desc')}}">?</abbr>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label class="text-muted">
                                         <input type="checkbox" name="delete_prio_items" value="1" class="" autocomplete="off"
                                             {{ (old('delete_prio_items') && old('delete_prio_items') == 1) || (!old('delete_prio_items') && $guild->is_prio_autopurged) ? 'checked' : '' }}>
-                                            Delete assigned items from each character's prio list <abbr title="if unchecked, corresponding prio will be flagged as received but still be visible">?</abbr>
+                                        {{trans('page.item.massInput.delete_from_prio')}} <abbr title="{{trans('page.item.massInput.delete_from_prio_desc')}}">?</abbr>
                                     </label>
                                 </div>
                             </div>
@@ -434,13 +418,13 @@ If note, response, public note, or officer note are equal to 'OS', offspec flag 
                     <div class="form-group">
                         <ul class="no-bullet no-indent">
                             <li class="mb-2">
-                                <button class="btn btn-success" onclick="return showSubmitWarning();"><span class="fas fa-fw fa-save"></span> Submit</button>
+                                <button class="btn btn-success" onclick="return showSubmitWarning();"><span class="fas fa-fw fa-save"></span> {{trans('page.item.massInput.submit')}}</button>
                             </li>
                             <li id="raidGroupWarning" style="display:none;">
-                                <span class="text-danger">No raid group selected</span>
+                                <span class="text-danger">{{trans('page.item.massInput.no_raid_group')}}</span>
                             </li>
                             <li>
-                                <small>WARNING: This form expires if you don't submit it within {{ env('SESSION_LIFETIME') / 60 }} hours (security reasons)</small>
+                                <small>{{trans('page.item.massInput.expires_warn1')}} {{ env('SESSION_LIFETIME') / 60 }} {{trans('page.item.massInput.expires_warn2')}}</small>
                             </li>
                         </ul>
                     </div>

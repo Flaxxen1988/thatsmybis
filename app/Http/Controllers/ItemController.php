@@ -1021,6 +1021,10 @@ class ItemController extends Controller
         } else if ($expansionId === 2) {
             $domain = 'tbc';
         }
+        $locale = \Illuminate\Support\Facades\Session::get('applocale');
+        if($locale != 'en'){
+            $domain = $locale.'.'.$domain;
+        }
 
         try {
             // Suppressing warnings with the error control operator @ (if the id doesn't exist, it will fail to open stream)

@@ -1,0 +1,23 @@
+<?php
+return [
+    'history' => 'Historie',
+    'guild_tier' => 'Gildenstufe',
+    'item_tier' => 'Gegenstandsstufe',
+    'guild_note' => 'Gildennotiz',
+    'item_note' => 'Gegenstandsnotiz',
+    'guild_prio_note' => 'Gilden Prio Notiz',
+    'item_prio' => 'Gegenstands Priorität',
+    'character_prio' => 'Charakter Prioritäten',
+    'edit' => 'bearbeiten',
+    'alt' => 'Nebencharacter',
+    'priod' => "Priorisiert",
+    'nobody_priod' => "Niemand hat diesen Gegenstand priorisiert",
+    'wishlisted' => 'Auf Wunschliste',
+    'ordered_by_rank' => 'sortiert je nach dem wer den Gegenstand höher priorisiert hat',
+    'nobody_wishlisted' => 'Niemand hat diesen Gegenstand auf der Wunschliste',
+    'os_item' => 'Nebenspezialisierung',
+    'received' => 'vor',
+    'received2' => 'erhalten',
+    'nobody_in_sheet' => 'Niemand hat diesen Gegenstand',
+    'none' => 'Nichts',
+];

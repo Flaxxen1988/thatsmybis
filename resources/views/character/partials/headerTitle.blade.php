@@ -10,21 +10,21 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="character{{ $character->id }}Dropdown">
             <a class="dropdown-item" href="{{ route('character.show', ['guildId' => $guild->id, 'guildSlug' => $guild->slug, 'characterId' => $character->id, 'nameSlug' => $character->slug]) }}" target="_blank">
-                Profile
+                {{trans('page.character.partials.headerTitle.profile')}}
             </a>
             @if (isset($showLogs) && $showLogs)
                 <a class="dropdown-item" href="{{ route('guild.auditLog', ['guildId' => $guild->id, 'guildSlug' => $guild->slug, 'character_id' => $character->id]) }}" target="_blank">
-                    History
+                    {{trans('page.character.partials.headerTitle.history')}}
                 </a>
             @endif
             @if (isset($showEdit) && $showEdit)
                 <a class="dropdown-item" href="{{ route('character.edit', ['guildId' => $guild->id, 'guildSlug' => $guild->slug, 'characterId' => $character->id, 'nameSlug' => $character->slug]) }}" target="_blank">
-                    Edit
+                    {{trans('page.character.partials.headerTitle.edit')}}
                 </a>
             @endif
             @if (isset($showEditLoot) && $showEditLoot)
                 <a class="dropdown-item" href="{{ route('character.loot', ['guildId' => $guild->id, 'guildSlug' => $guild->slug, 'characterId' => $character->id, 'nameSlug' => $character->slug]) }}" target="_blank">
-                    Loot
+                    {{trans('page.character.partials.headerTitle.loot')}}
                 </a>
             @endif
         </div>

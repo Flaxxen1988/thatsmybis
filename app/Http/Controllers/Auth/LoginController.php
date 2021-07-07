@@ -41,26 +41,19 @@ class LoginController extends Controller
      * @return Response
      */
     public function redirectToDiscord() {
-        if(env('APP_DEBUG')) {
-            $user = User::where('username', "Flaxxen")->first();
-            Auth::login($user, true);
+        /*
+        $user = User::where('username', "Flaxxen")->first();
+        Auth::login($user, true);
 
-            return redirect()->route('home');
-        }
-        //if($user == null) {
-        //    $user = User::create([
-        //        'username' => "Flaxxen",
-        //        'discord_username' => "Flaxxen",
-        //        'discord_id' => 386638061532086290,
-        //        'discord_avatar' => null,
-        //        'discord_token' => "iKlkGxQdQiU9dcktC3BPrFThVFbVzN",
-        //        'discord_refresh_token' => "pKqIdcMcrErDNrCOABrqSwmEMPSQFC",
-        //        'discord_token_expiry' => date('Y-m-d H:i:s', time() + 604800),
-        //        'password' => null,
-        //    ]);
-        //}
+        Auth::user()->update([
+            'discord_token'         => "aRXgqUse97b4JgIWHdWzXEU6hPgHsr",
+            'discord_refresh_token' => "HeMpaGtPMCmYJYBwFy0kmXtfIDnhLi",
+            'discord_token_expiry'  => date('Y-m-d H:i:s', time() + 3600),
+        ]);
 
-        //return redirect()->route('home');
+        return redirect()->route('home');
+        */
+
 
 
 

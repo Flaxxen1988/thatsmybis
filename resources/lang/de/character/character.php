@@ -6,6 +6,7 @@ return [
     'edit' => include('edit.php'),
     'partials' => [
         'header' => include('partials/header.php'),
-        'itemdetails' => include('partials/itemdetails.php')
+        'itemdetails' => include('partials/itemdetails.php'),
+        'headerTitle' => include ('partials/headerTitle.php'),
     ]
 ];

@@ -1,0 +1,20 @@
+<?php
+return [
+    'username' => 'Username',
+    'eg_username' => 'eg. Gurgthock',
+    'public_note' => 'Public Note',
+    'public_note_desc' => 'anyone in the guild can see this',
+    'officer_note' => 'Officer Note',
+    'officer_note_desc' => 'only officers can see this',
+    'streamer_hidden' => 'Hidden in streamer mode',
+    'personal_note' => 'Personal Note',
+    'personal_note_desc' => 'only you can see this',
+    'unlock_received_loot' => 'Unlock received loot list',
+    'allow_edit_received_loot' => 'allow member to edit their received loot,',
+    'overrides_guild_settings' => 'overrides guild settings',
+    'unlock_wishlist' => 'Unlock wishlists',
+    'access_revoke' => 'access revoked, hidden from lists, characters also archived',
+    'save' => 'Save',
+    'locked' => 'locked',
+    'already_unlocked' => 'already unlocked',
+];

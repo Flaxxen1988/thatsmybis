@@ -1,0 +1,23 @@
+<?php
+return [
+    'history' => 'history',
+    'guild_tier' => 'Guild Tier',
+    'item_tier' => 'Item Tier',
+    'guild_note' => 'Guild Note',
+    'item_note' => 'Item Note',
+    'guild_prio_note' => 'Guild Prio Note',
+    'item_prio' => 'Item Priority',
+    'character_prio' => 'Character Prios',
+    'edit' => 'edit',
+    'alt' => 'alt',
+    'priod' => "Prio'd",
+    'nobody_priod' => "Nobody has been prio'd for this item yet",
+    'wishlisted' => 'Wishlisted',
+    'ordered_by_rank' => 'ordered by who ranked it higher',
+    'nobody_wishlisted' => 'Nobody has this item in their wishlist yet',
+    'os_item' => 'offspec item',
+    'received' => 'received',
+    'received2' => 'ago',
+    'nobody_in_sheet' => 'Nobody has this item in their character sheet yet',
+    'none' => 'None',
+];

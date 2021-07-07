@@ -10,14 +10,14 @@
                 <li class="list-inline-item">
                     <a href="{{ route('member.edit', ['guildId' => $guild->id, 'guildSlug' => $guild->slug, 'memberId' => $member->id, 'usernameSlug' => $member->slug]) }}">
                         <span class="fas fa-fw fa-pencil"></span>
-                        edit
+                        {{trans('page.member.partials.header.edit')}}
                     </a>
                 </li>
             @endif
             @if (isset($showLogs) && $showLogs)
                 <li class="list-inline-item">
                     <a href="{{ route('guild.auditLog', ['guildId' => $guild->id, 'guildSlug' => $guild->slug, 'member_id' => $member->id]) }}">
-                        <span class="fas fa-fw fa-clipboard-list-check"></span>history
+                        <span class="fas fa-fw fa-clipboard-list-check"></span>{{trans('page.member.partials.header.history')}}
                     </a>
                 </li>
             @endif

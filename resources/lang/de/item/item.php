@@ -1,4 +1,5 @@
 <?php
 return [
-    'list' => include ('list.php')
+    'massInput' => include ('massInput.php'),
+    'show' => include ('show.php')
 ];
