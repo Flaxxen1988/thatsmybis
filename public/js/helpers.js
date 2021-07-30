@@ -389,6 +389,8 @@ function trackTimestamps(rate = 15000) {
             });
         }
 
+        moment.locale(language);
+
         let timestamp = $(this).data("timestamp");
         if (timestamp < 1000000000000) { // <-- Potential y33.658k bug [that's a y2k joke]
             timestamp = timestamp * 1000; // convert from seconds to milliseconds

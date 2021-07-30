@@ -9,28 +9,28 @@
                 <div class="col-12 pt-2 mb-2">
                     <h1 class="font-weight-medium">
                         <span class="fas fa-fw fa-clipboard-list-check text-gold"></span>
-                        Audit Log
+                        {{trans('auditLog.auditlog')}}
                     </h1>
                     <ul>
                         <li class="small no-bullet font-italic">
-                            Whodunit?
+                            {{trans('auditLog.whodunit')}}
                         </li>
                         @if (!$showPrios)
                             <li class="small text-danger">
-                                Prios are hidden by your guild master(s)
+                                {{trans('auditLog.prio_hidden')}}
                             </li>
                         @elseif ($guild->is_prio_private)
                             <li class="small text-warning">
-                                Prios are hidden from raiders
+                                {{trans('auditLog.prio_hidden_raiders')}}
                             </li>
                         @endif
                         @if (!$showWishlist)
                             <li class="small text-danger">
-                                Wishlists are hidden by your guild master(s)
+                                {{trans('auditLog.wishlist_hidden')}}
                             </li>
                         @elseif ($guild->is_wishlist_private)
                             <li class="small text-warning">
-                                Wishlists are hidden from raiders
+                                {{trans('auditLog.wishlist_hidden_raiders')}}
                             </li>
                         @endif
                     </ul>
@@ -42,7 +42,7 @@
                     <div class="col-12 mb-3 text-5">
                         Filter:
                         <a href="{{ route('guild.auditLog', ['guildId' => $guild->id, 'guildSlug' => $guild->slug]) }}" class="small">
-                            reset
+                            {{trans('auditLog.reset')}}
                         </a>
                     </div>
                     <div class="col-12 pb-3 d-flex flex-wrap">
@@ -90,7 +90,7 @@
                     <div class="form-group">
                         <label for="max_date" class="font-weight-bold">
                             <span class="fas fa-fw fa-calendar-plus text-muted"></span>
-                            Max Date
+                            {{trans('auditLog.max_date')}}
                         </label>
                         <input name="max_date"
                             min="2004-09-22"
@@ -107,7 +107,7 @@
                     <div class="form-group">
                         <label for="min_date" class="font-weight-bold">
                             <span class="fas fa-fw fa-calendar-minus text-muted"></span>
-                            Min Date
+                            {{trans('auditLog.min_date')}}
                         </label>
                         <input name="min_date" min="2004-09-22"
                             max="{{ getDateTime('Y-m-d') }}"
@@ -123,7 +123,7 @@
                     <div class="form-group">
                         <label for="character_id" class="font-weight-bold">
                             <span class="fas fa-fw fa-users text-muted"></span>
-                            Character
+                            {{trans('auditLog.character')}}
                         </label>
                         <select name="character_id" class="selectpicker form-control dark" data-live-search="true" autocomplete="off">
                             <option value="">
@@ -131,9 +131,9 @@
                             </option>
                             @foreach ($guild->characters as $character)
                                 <option value="{{ $character->id }}"
-                                        data-tokens="{{ $character->id }}" class="text-{{ strtolower($character->class) }}-important"
+                                        data-tokens="{{ $character->id }}" class="text-{{ str_replace('.', '-', strtolower($character->class)) }}-important"
                                         {{ Request::get('character_id') && Request::get('character_id') == $character->id ? 'selected' : ''}}>
-                                    {{ $character->name }} &nbsp; {{ $character->class ? '(' . $character->class . ')' : '' }} &nbsp; {{ $character->is_alt ? "Alt" : '' }}
+                                    {{ $character->name }} &nbsp; {{ $character->class ? '(' . trans($character->class) . ')' : '' }} &nbsp; {{ $character->is_alt ? "Alt" : '' }}
                                 </option>
                             @endforeach
 
@@ -144,7 +144,7 @@
                     <div class="form-group">
                         <label for="member_id" class="font-weight-bold">
                             <span class="fas fa-fw fa-user text-muted"></span>
-                            Member
+                            {{trans('auditLog.member')}}
                         </label>
                         <select name="member_id" class="selectpicker form-control dark" data-live-search="true" autocomplete="off">
                             <option value="">
@@ -165,7 +165,7 @@
                     <div class="form-group">
                         <label for="raid_group_id" class="font-weight-bold">
                             <span class="fas fa-fw fa-helmet-battle text-muted"></span>
-                            Raid Group
+                            {{trans('auditLog.raid_group')}}
                         </label>
                         <select name="raid_group_id" class="selectpicker form-control dark" data-live-search="true" autocomplete="off">
                             <option value="">
@@ -186,7 +186,7 @@
                     <div class="form-group">
                         <label for="type" class="font-weight-bold">
                             <span class="fas fa-fw fa-scroll-old text-muted"></span>
-                            Loot Type
+                            {{trans('auditLog.loot_type')}}
                         </label>
                         <select name="type" class="selectpicker form-control dark" data-live-search="true" autocomplete="off">
                             <option value="" data-tokens="">
@@ -195,32 +195,32 @@
                             <option value="{{ \App\Item::TYPE_PRIO }}"
                                 data-tokens="{{ \App\Item::TYPE_PRIO }}"
                                 {{ Request::get('type') && Request::get('type') == \App\Item::TYPE_PRIO ? 'selected' : ''}}>
-                                Prio
+                                {{trans('auditLog.prio')}}
                             </option>
                             <option value="{{ \App\Item::TYPE_RECIPE }}"
                                 data-tokens="{{ \App\Item::TYPE_RECIPE }}"
                                 {{ Request::get('type') && Request::get('type') == \App\Item::TYPE_RECIPE ? 'selected' : ''}}>
-                                Recipe
+                                {{trans('auditLog.recipe')}}
                             </option>
                             <option value="{{ \App\Item::TYPE_WISHLIST }}"
                                 data-tokens="{{ \App\Item::TYPE_WISHLIST }}"
                                 {{ Request::get('type') && Request::get('type') == \App\Item::TYPE_WISHLIST ? 'selected' : ''}}>
-                                Wishlist
+                                {{trans('auditLog.wishlist')}}
                             </option>
                             <option value="{{ 'received_all' }}"
                                 data-tokens="received_all"
                                 {{ Request::get('type') && Request::get('type') == 'received_all' ? 'selected' : ''}}>
-                                Received (all)
+                                {{trans('auditLog.received_all')}}
                             </option>
                             <option value="{{ \App\AuditLog::TYPE_ASSIGN }}"
                                 data-tokens="{{ \App\AuditLog::TYPE_ASSIGN }}"
                                 {{ Request::get('type') && Request::get('type') == \App\AuditLog::TYPE_ASSIGN ? 'selected' : ''}}>
-                                Received (via assign loot page)
+                                {{trans('auditLog.received_lootassign')}}
                             </option>
                             <option value="{{ \App\Item::TYPE_RECEIVED }}"
                                 data-tokens="{{ \App\Item::TYPE_RECEIVED }}"
                                 {{ Request::get('type') && Request::get('type') == \App\Item::TYPE_RECEIVED ? 'selected' : ''}}>
-                                Received (via character loot page)
+                                {{trans('auditLog.received_character')}}
                             </option>
                         </select>
                     </div>
@@ -229,17 +229,17 @@
                     <div class="form-group">
                         <label for="item_id" class="font-weight-bold">
                             <span class="fas fa-fw fa-sack text-muted"></span>
-                            Item
+                            {{trans('auditLog.item')}}
                         </label>
-                        <input name="item_id" maxlength="40" data-max-length="40" type="text" placeholder="type an item name" class="js-item-autocomplete-link js-input-text form-control dark">
-                        <span class="js-loading-indicator" style="display:none;">Searching...</span>&nbsp;
+                        <input name="item_id" maxlength="40" data-max-length="40" type="text" placeholder="{{trans('auditLog.type_item')}}" class="js-item-autocomplete-link js-input-text form-control dark">
+                        <span class="js-loading-indicator" style="display:none;">{{trans('auditLog.searching')}}</span>&nbsp;
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-3 col-6">
                     <div class="form-group">
                         <label for="item_instance_id" class="font-weight-bold">
                             <span class="fas fa-fw fa-dungeon text-muted"></span>
-                            Item Dungeon
+                            {{trans('auditLog.item_dungeon')}}
                         </label>
                         <select name="item_instance_id" class="selectpicker form-control dark" data-live-search="true" autocomplete="off">
                             <option value="" data-tokens="">
@@ -266,17 +266,21 @@
                                     <div class="list-timestamp text-right text-muted p-2">
                                         @if ($log->member_id)
                                             <a href="{{ route('member.show', ['guildId' => $guild->id, 'guildSlug' => $guild->slug, 'memberId' => $log->member_id, 'usernameSlug' => $log->member_slug]) }}" class="text-muted">
-                                                <span class="js-watchable-timestamp js-timestamp-title" data-timestamp="{{ $log->created_at }}"></span> ago
+                                                <span class="js-watchable-timestamp js-timestamp-title" data-timestamp="{{ $log->created_at }}"></span> {{trans('auditLog.ago')}}
                                             </a>
                                         @else
-                                            <span class="js-watchable-timestamp js-timestamp-title" data-timestamp="{{ $log->created_at }}"></span> ago
+                                            <span class="js-watchable-timestamp js-timestamp-title" data-timestamp="{{ $log->created_at }}"></span> {{trans('auditLog.ago')}}
                                         @endif
                                     </div>
 
                                     <div class="p-2">
                                         <ul class="list-inline">
                                             <li class="list-inline-item">
-                                                {{ $log->description }}
+                                                @if(str_contains('auditLog.', $log->description))
+                                                    {{ trans($log->description) }}
+                                                @else
+                                                    {{ $log->description }}
+                                                @endif
                                             </li>
 
                                             @if ($log->item_id)
@@ -380,7 +384,7 @@
                 $.ajax({
                     method: "get",
                     dataType: "json",
-                    url: "/api/items/query/" + guild.expansion_id + "/" + request.term,
+                    url: "/api/items/query/" + guild.expansion_id + "/" + language + "/" + request.term,
                     success: function (data) {
                         response(data);
                         if (data.length <= 0) {

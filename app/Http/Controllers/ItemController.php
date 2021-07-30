@@ -6,6 +6,7 @@ use App\{AuditLog, Batch, Character, Guild, Instance, Item, RaidGroup};
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -1021,7 +1022,7 @@ class ItemController extends Controller
         } else if ($expansionId === 2) {
             $domain = 'tbc';
         }
-        $locale = \Illuminate\Support\Facades\Session::get('applocale');
+        $locale = App::getLocale();
         if($locale != 'en'){
             $domain = $locale.'.'.$domain;
         }
